@@ -1,1 +1,1 @@
-Simple vector graphics libraries in Ruby for communicating with [http://github.com/osresearch/teensyv](teensyv).
+Simple vector graphics libraries in Ruby for communicating with [teensyv](http://github.com/osresearch/teensyv).
