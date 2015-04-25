@@ -1,7 +1,4 @@
-require_relative 'view/screen.rb'
-require_relative 'view/usb_teensy_renderer.rb'
-require_relative 'objects/2d_point.rb'
-require_relative 'objects/line.rb'
+require 'ivan'
 
 the_renderer = USBTeensyRenderer.new("/dev/tty.usbmodem54121", 9600)
 the_screen = Screen.new(the_renderer, 255, 255)
@@ -11,7 +8,7 @@ the_lines = []
 radius = 120
 center_x = 127
 center_y = 127
-num_vertices = 20
+num_vertices = 600
 i = 0.0
 circle_vertices = []
 num_vertices.times do
