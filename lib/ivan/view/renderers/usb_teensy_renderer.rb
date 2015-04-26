@@ -1,8 +1,6 @@
-require 'serialport'
-
 class USBTeensyRenderer
-  def initialize(usb_device, baud_rate)
-    @sp = SerialPort.new(usb_device, baud_rate, 8, 1)
+  def initialize
+    @sp = SerialPort.new("/dev/tty.usbmodem54121", 9600, 8, 1)
     @sp.get_modem_params()
   end
   def write_byte(the_byte)
@@ -26,5 +24,4 @@ class USBTeensyRenderer
       write_coordinate_pair(i.start_point, i.end_point)
     }
   end
-
 end
