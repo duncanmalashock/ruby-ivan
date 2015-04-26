@@ -1,1 +1,1 @@
-Ruby vector graphics library for communicating with [teensyv](http://github.com/osresearch/teensyv).
+Ruby Gem for communicating with [teensyv](http://github.com/osresearch/teensyv) vector graphics firmware.
