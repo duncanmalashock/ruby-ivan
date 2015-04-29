@@ -16,25 +16,4 @@ describe Compositor do
     end
   end
 
-  context 'when one drawing instruction is added' do
-    before do
-      comp.add_instruction(Line.new( TwoDPoint.new(20, 20),TwoDPoint.new(40, 40) ))
-    end
-    it 'has a length of one' do
-      expect(comp.drawing_instructions.length).to eq(1)
-    end
-    it 'has an instruction of class Line' do
-      expect(comp.drawing_instructions[0].class).to eq(Line)
-    end
-
-    context 'when one drawing instruction is added and drawing instructions are cleared' do
-      before do
-        comp.clear_instructions
-      end
-      it 'has a length of zero' do
-        expect(comp.drawing_instructions.length).to eq(0)
-      end
-    end
-  end
-
 end
