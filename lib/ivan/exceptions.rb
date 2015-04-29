@@ -1,0 +1,2 @@
+class USBInitError < Exception
+end
