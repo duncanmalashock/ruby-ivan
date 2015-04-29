@@ -1,6 +1,15 @@
+# USBTeensyRenderer
+# ----------
+# Renders via USB to teensyv firmware
+# More info: https://github.com/osresearch/teensyv
+
 class USBTeensyRenderer
   def initialize
-    @sp = SerialPort.new("/dev/tty.usbmodem54121", 9600, 8, 1)
+    begin
+      @sp = SerialPort.new("/dev/tty.usbmodem54121", 9600, 8, 1)
+    rescue
+      raise USBInitError, "USB output couldn't be initialized"
+    end
     @sp.get_modem_params()
   end
   def write_byte(the_byte)
@@ -23,5 +32,6 @@ class USBTeensyRenderer
     instructions.each { |i|
       write_coordinate_pair(i.start_point, i.end_point)
     }
+    "#{instructions.length} instructions rendered"
   end
 end
