@@ -4,9 +4,9 @@
 # More info: https://github.com/osresearch/teensyv
 
 class USBTeensyRenderer
-  def initialize
+  def initialize(serial_port_class: SerialPort)
     begin
-      @sp = SerialPort.new("/dev/tty.usbmodem54121", 9600, 8, 1)
+      @sp = serial_port_class.new("/dev/tty.usbmodem54121", 9600, 8, 1)
     rescue
       raise USBInitError, "USB output couldn't be initialized"
     end
