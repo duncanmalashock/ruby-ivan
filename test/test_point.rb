@@ -7,6 +7,6 @@ describe Point do
   end
 
   it "must have a coordinate" do
-    @point.coordinate.must_equal [0,0]
+    @point.coordinate.must_equal [0,0,0]
   end
 end
