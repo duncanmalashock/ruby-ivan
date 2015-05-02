@@ -1,6 +1,6 @@
 class Point
-  attr_accessor :coordinates
-  def initialize (coordinates)
-    @coordinates = coordinates
+  attr_accessor :coordinate
+  def initialize (coordinate)
+    @coordinate = coordinate
   end
 end
