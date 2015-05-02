@@ -18,9 +18,7 @@ Gem::Specification.new do |spec|
   spec.license       = 'MIT'
 
   spec.add_dependency 'serialport', '~> 1.3'
-  spec.add_dependency 'guard-rspec', '~> 4.5'
   
   spec.add_development_dependency 'bundler', '~> 1.3'
-  spec.add_development_dependency 'rspec', '~> 3.2'
   spec.add_development_dependency 'rake', '~> 10.1'
 end
