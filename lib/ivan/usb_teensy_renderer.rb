@@ -21,17 +21,16 @@ class USBTeensyRenderer
     write_byte(high_byte)
     write_byte(low_byte)
   end
-  def write_coordinate_pair(start_point, end_point)
-    write_byte(start_point.x.to_i)
-    write_byte(start_point.y.to_i)
-    write_byte(end_point.x.to_i)
-    write_byte(end_point.y.to_i)
+  def render_line(line)
+    write_byte(line[0][0].to_i)
+    write_byte(line[0][1].to_i)
+    write_byte(line[1][0].to_i)
+    write_byte(line[1][1].to_i)
   end
   def render(instructions)
     write_16_bit_word(instructions.length)
     instructions.each { |i|
-      write_coordinate_pair(i.start_point, i.end_point)
+      render_line(i)
     }
-    "#{instructions.length} instructions rendered"
   end
 end
