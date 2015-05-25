@@ -2,6 +2,7 @@ require_relative 'ivan/version'
 require_relative 'ivan/exceptions'
 
 require 'serialport'
+require 'unimidi'
 
 require_relative 'ivan/view'
 require_relative 'ivan/renderer'

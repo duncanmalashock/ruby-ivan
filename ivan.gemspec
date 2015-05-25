@@ -18,6 +18,7 @@ Gem::Specification.new do |spec|
   spec.license       = 'MIT'
 
   spec.add_dependency 'serialport', '~> 1.3'
+  spec.add_dependency 'unimidi', '~> 0.4.6'
   
   spec.add_development_dependency 'bundler', '~> 1.3'
   spec.add_development_dependency 'minitest', '~> 5.6'
