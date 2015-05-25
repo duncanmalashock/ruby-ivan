@@ -13,6 +13,6 @@ class View
     self.points.each do |p|
       p[0] = (eye[2] * (p[0] - eye[0]) ) / (eye[2] + p[2]) + eye[0]
       p[1] = (eye[2] * (p[1] - eye[1]) ) / (eye[2] + p[2]) + eye[1]
-  end
     end
+  end
 end

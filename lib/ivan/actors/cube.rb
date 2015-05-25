@@ -20,9 +20,10 @@ class Cube < Actor
               [points[1],points[7] ],
               [points[4],points[6] ],
               [points[4],points[5] ],
-              [points[5],points[6] ],
+              [points[0],points[6] ],
               [points[6],points[7] ],
-              [points[7],points[5] ] ]
+              [points[7],points[5] ]
+            ]
     super(points, lines)
   end
 end
