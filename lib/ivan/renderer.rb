@@ -8,11 +8,21 @@ class Renderer
     @sp.get_modem_params()
   end
 
-  def render(instructions)
-    transmit_instruction_length(instructions.length)
-    instructions.each { |i|
-      render_line(i)
-    }
+  def render(view)
+    # puts view.class
+    # puts view.inspect
+    points = view.points.clone
+    lines = view.lines.clone
+    points = scale_points(points)
+    # lines = clip_lines(lines)
+    transmit_instruction_length(lines.length)
+    lines.each do |l|
+      render_line(
+        [
+          [clip(l[0][0]), clip(l[0][1])],
+          [clip(l[1][0]), clip(l[1][1])]
+        ])
+    end
   end
 
   private
