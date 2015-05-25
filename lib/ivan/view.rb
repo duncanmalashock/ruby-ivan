@@ -1,23 +1,18 @@
 class View
+  attr_accessor :points
   attr_accessor :lines
-  def initialize(actor)
-    actor.points.each do |l|
-      l[0] = scale( l[0] + l[2]*0.5 )
-      l[1] = scale( l[1] + l[2]*0.5 )
-      l.pop
+  def initialize(actors, focal)
+    eye = [0.0, 0.0, focal]
+    self.points = []
+    self.lines = []
+    # puts "rendering a #{actor.points[0].length}-dimensional actor of class #{actor.class}"
+    actors.each do |a|
+      self.points += a.points.clone
+      self.lines += a.lines.clone
     end
-    self.lines = actor.lines
+    self.points.each do |p|
+      p[0] = (eye[2] * (p[0] - eye[0]) ) / (eye[2] + p[2]) + eye[0]
+      p[1] = (eye[2] * (p[1] - eye[1]) ) / (eye[2] + p[2]) + eye[1]
   end
-
-  private 
-
-    def scale(in_val)
-      out_val = ((in_val + 2.1) * 50).floor
-      if out_val <= 0
-        return 0
-      elsif out_val >= 255
-        return 255
-      end
-      return out_val
     end
 end
