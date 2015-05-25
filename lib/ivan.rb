@@ -9,6 +9,7 @@ require_relative 'ivan/renderer'
 
 require_relative 'ivan/primitives/point'
 require_relative 'ivan/primitives/line'
+require_relative 'ivan/spatial'
 require_relative 'ivan/actors/actor'
 require_relative 'ivan/actors/cube'
 

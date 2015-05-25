@@ -1,4 +1,7 @@
 class Cube < Actor
+  include Translatable
+  include Rotatable
+  include Scalable
   def initialize
     points = [ [-1,-1,1],
                 [1,-1,1], 
