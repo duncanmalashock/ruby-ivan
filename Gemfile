@@ -1,2 +1,10 @@
 source 'https://rubygems.org'
-gemspec
+
+gem 'serialport'
+gem 'unimidi'
+
+gem 'bundler'
+gem 'minitest'
+gem 'minitest-pride'
+gem 'rake'
+gem 'pry'
