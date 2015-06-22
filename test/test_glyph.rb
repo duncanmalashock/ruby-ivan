@@ -1,8 +1,8 @@
 require_relative "minitest_helper"
 
-describe Actor do
+describe Glyph do
   before do
-    @cube = Actor.new(CubeFixture.geometry)
+    @cube = Glyph.new(CubeFixture.geometry)
   end
 
   describe "when initialized" do
@@ -15,7 +15,7 @@ describe Actor do
       assert_equal 1.0, @cube.instructions[0].z
     end
     it "plays the role of Spatial" do
-      # Test that Cube plays the Spatial role later!
+      # Test that Glyph plays the Spatial role later!
     end
   end
 

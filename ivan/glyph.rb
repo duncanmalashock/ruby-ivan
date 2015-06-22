@@ -1,4 +1,4 @@
-class Actor
+class Glyph
   include Spatial
 
   def initialize(geometry)

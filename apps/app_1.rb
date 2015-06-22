@@ -19,9 +19,9 @@ square_geometry = {
     [3, 0]
   ]
 }
-actor1 = Actor.new(square_geometry)
+glyph1 = Glyph.new(square_geometry)
 config_params = {
   port: "/dev/tty.usbmodem54121"
 }
 sender1 = USBTeensySender.new(config_params)
-sender1.send_buffer(actor1.instructions)
+sender1.send_buffer(glyph1.instructions)
