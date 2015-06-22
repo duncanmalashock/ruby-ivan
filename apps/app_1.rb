@@ -2,15 +2,15 @@ require_relative '../ivan'
 
 require_relative 'usb_teensy_sender'
 
-min_val = 80
-max_val = 180
+min_val = 0
+max_val = 255
 
 square_geometry = {
   points: [ 
     [min_val, min_val],
-    [min_val, max_val], 
-    [max_val, max_val],
-    [max_val, min_val]
+    [min_val, max_val],
+    [max_val, min_val],
+    [max_val, max_val]
   ],
   lines: [
     [0, 1],
