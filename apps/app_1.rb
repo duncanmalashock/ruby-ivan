@@ -22,16 +22,15 @@ star_geometry = {
   ]
 }
 
-z_rot = 0.0
-300.times do
-  z_rot += 0.003
+z_rot = -0.6
+loop do
+  z_rot += 0.01
   glyph1 = Glyph.new(star_geometry)
   sender1.send_buffer(glyph1 \
+    .translate([-128, -128, nil]) \
     .scale([0.5, 0.5, nil]) \
-    .translate([128, 128, nil]) \
-    .translate([-255, -255, nil]) \
     .rotate_z(z_rot) \
-    .translate([200, 200, nil]) \
+    .translate([128, 128, nil]) \
     .instructions)
-  sleep 0.01
+  sleep 0.001
 end
