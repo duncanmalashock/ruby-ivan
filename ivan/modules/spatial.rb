@@ -49,4 +49,13 @@ module Spatial
         p.z ]
     end
   end
+
+  def project(x = 0, y = 0, z = -10.0)
+    pov = Point.new(x, y, z)
+    transform_points do |p|
+      [ pov.z * (p.x - pov.x) / (p.z + pov.z) + pov.x,
+        pov.z * (p.y - pov.y) / (p.z + pov.z) + pov.y,
+        nil ]
+    end
+  end
 end
