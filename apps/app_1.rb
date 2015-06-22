@@ -23,7 +23,7 @@ star_geometry = {
 }
 
 z_rot = 0.0
-100.times do
+300.times do
   z_rot += 0.003
   glyph1 = Glyph.new(star_geometry)
   sender1.send_buffer(glyph1 \
