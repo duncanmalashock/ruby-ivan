@@ -1,11 +1,5 @@
-# Sender is an abstract class. Subclass it for the requirements of
-# your application's display hardware.
-
-class DefaultOutputStub
-  def default_send(value)
-    "I'm a stub for an abstract class"
-  end
-end
+# Sender is an abstract class, and is not meant to be instantiated.
+# Subclass it for the requirements of your application's display hardware.
 
 class Sender
   @output = nil
@@ -17,28 +11,11 @@ class Sender
     end
   end
 
-  def post_initialize(config_params)
-    @output = DefaultOutputStub.new
-    true
-  end
-
-  def output_message
-    :default_send
-  end
-
-  def coordinate_format(value)
-    value
-  end
-
   def send_buffer(instructions)
     pre_send_buffer(instructions)
     instructions.each_slice(2) do |slice|
       send_line(slice)
     end
-  end
-
-  def pre_send_buffer(instructions)
-    true
   end
 
   private
@@ -50,4 +27,21 @@ class Sender
       @output.send(output_message, coordinate_format(line[1].y))
     end
 
+    # Override these methods in concrete subclasses
+
+    def post_initialize(config_params)
+      raise NotImplementedError
+    end
+
+    def pre_send_buffer(instructions)
+      raise NotImplementedError
+    end
+
+    def output_message
+      raise NotImplementedError
+    end
+
+    def coordinate_format(value)
+      raise NotImplementedError
+    end
 end
