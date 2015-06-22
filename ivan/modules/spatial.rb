@@ -1,54 +1,52 @@
 module Spatial
   include Math
-  def rotate_x(theta)
-    self.points.each do |p|
-      pp = [0,0,0]
-      pp[0] = p[0]
-      pp[1] = p[1] * cos(theta) - p[2] * sin(theta)
-      pp[2] = p[1] * sin(theta) + p[2] * cos(theta)
-      p[0] = pp[0]
-      p[1] = pp[1]
-      p[2] = pp[2]
-    end
-  end
 
-  def rotate_y(theta)
-    self.points.each do |p|
-      pp = [0,0,0]
-      pp[0] = p[2] * sin(theta) + p[0] * cos(theta)
-      pp[1] = p[1]
-      pp[2] = p[2] * cos(theta) - p[0] * sin(theta)
-      p[0] = pp[0]
-      p[1] = pp[1]
-      p[2] = pp[2]
+  def transform_points
+    self.points = points.map do |p|
+      p = Point.new(*yield(p))
     end
-  end
-
-  def rotate_z(theta)
-    self.points.each do |p|
-      pp = [0,0,0]
-      pp[0] = p[0] * cos(theta) - p[1] * sin(theta)
-      pp[1] = p[0] * sin(theta) + p[1] * cos(theta)
-      pp[2] = p[2]
-      p[0] = pp[0]
-      p[1] = pp[1]
-      p[2] = pp[2]
-    end
+    return self
   end
 
   def translate(delta)
-    self.points.each do |p|
-      p[0] += delta[0]
-      p[1] += delta[1]
-      p[2] += delta[2]
+    transform_points do |p|
+      [ p.x + delta[0],
+        p.y + delta[1],
+        ( p.z.nil? && delta[2].nil? ) ? nil : p.z + delta[2] ]
     end
   end
 
   def scale(delta)
-    self.points.each do |p|
-      p[0] *= delta[0]
-      p[1] *= delta[1]
-      p[2] *= delta[2]
+    transform_points do |p|
+      [ p.x * delta[0],
+        p.y * delta[1],
+        p.z.nil? ? nil : p.z * delta[2] ]
+    end
+  end
+
+  def rotate_x(theta)
+    transform_points do |p|
+      p.z = 0.0 if p.z.nil?
+      [ p.x,
+        p.y * cos(theta) - p.z * sin(theta),
+        p.y * sin(theta) + p.z * cos(theta) ]
+    end
+  end
+
+  def rotate_y(theta)
+    transform_points do |p|
+      p.z = 0.0 if p.z.nil?
+      [ p.z * sin(theta) + p.x * cos(theta),
+        p.y,
+        p.z * cos(theta) - p.x * sin(theta) ]
+    end
+  end
+
+  def rotate_z(theta)
+    transform_points do |p|
+      [ p.x * cos(theta) - p.y * sin(theta),
+        p.x * sin(theta) + p.y * cos(theta),
+        p.z ]
     end
   end
 end
