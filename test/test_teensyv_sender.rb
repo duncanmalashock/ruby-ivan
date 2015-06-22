@@ -21,5 +21,10 @@ describe TeensyVSender do
       assert_send [@sender, :pre_send_buffer, BufferFixture.instructions]
       assert_send [@sender, :send_line, BufferFixture.instructions[0..1]]
     end
+
+    it "raises an error if output is unsafe" do
+      @sender.send_buffer(UnsafeBufferFixture.instructions)
+      assert_raises @sender, UnsafeOutputError
+    end
   end
 end

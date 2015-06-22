@@ -7,5 +7,5 @@ end
 class LineIndexRangeError < Exception
 end
 
-# class NotSafeForDisplayError < Exception
-# end
+class UnsafeOutputError < Exception
+end

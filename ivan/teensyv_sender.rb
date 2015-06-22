@@ -11,6 +11,12 @@ class TeensyVSender < Sender
         config_params.fetch(:data_bits, 8),
         config_params.fetch(:stop_bits, 1)
       )
+      @boundary = config_params.fetch(:boundary, {
+        x_min: 0,
+        y_min: 0,
+        x_max: 255,
+        y_max: 255
+      })
     end
 
     def pre_send_buffer(instructions)

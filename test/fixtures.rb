@@ -8,18 +8,18 @@ end
 
 class ThreeDPointFixture
   attr_accessor :x, :y, :z
-  def initialize
-    @x = 10
-    @y = 20
-    @z = 30
+  def initialize(x = 10, y = 20, z = 30)
+    @x = x
+    @y = y
+    @z = z
   end
 end
 
 class TwoDPointFixture
   attr_accessor :x, :y, :z
-  def initialize
-    @x = 10
-    @y = 20
+  def initialize(x = 10, y = 20)
+    @x = x
+    @y = y
     @z = nil
   end
 end
@@ -61,7 +61,16 @@ module BufferFixture
       TwoDPointFixture.new,
       TwoDPointFixture.new,
       TwoDPointFixture.new,
-      TwoDPointFixture.new,
+      TwoDPointFixture.new
+    ]
+  end
+end
+
+module UnsafeBufferFixture
+  def self.instructions
+    [
+      TwoDPointFixture.new(-290, 0),
+      TwoDPointFixture.new(-20, 500)
     ]
   end
 end

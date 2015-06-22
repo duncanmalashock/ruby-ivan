@@ -19,10 +19,6 @@ describe Point do
       assert_respond_to @point_a, :z
       assert_equal nil, @point_a.z
     end
-    it "responds correctly to three_d?" do
-      assert_respond_to @point_a, :three_d?
-      assert_equal false, @point_a.three_d?
-    end
   end
 
   describe "when initialized with x, y, and z parameters" do
@@ -37,10 +33,6 @@ describe Point do
     it "responds correctly to z" do
       assert_respond_to @point_b, :z
       assert_equal 3.0, @point_b.z
-    end
-    it "responds correctly to three_d?" do
-      assert_respond_to @point_b, :three_d?
-      assert_equal true, @point_b.three_d?
     end
   end
 

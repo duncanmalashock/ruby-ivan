@@ -3,6 +3,7 @@
 
 class Sender
   @output = nil
+  @boundary = nil
   def initialize(config_params)
     begin
       post_initialize(config_params)
@@ -12,6 +13,7 @@ class Sender
   end
 
   def send_buffer(instructions)
+    check_safe(instructions)
     pre_send_buffer(instructions)
     instructions.each_slice(2) do |slice|
       send_line(slice)
@@ -19,6 +21,17 @@ class Sender
   end
 
   private
+
+    def check_safe(instructions)
+      instructions.each do |i|
+        raise UnsafeOutputError, "Found X-value #{i.x} outside output boundary" \
+          if (i.x < @boundary[:x_min] or i.x > @boundary[:x_max])
+        raise UnsafeOutputError, "Found Y-value #{i.y} outside output boundary" \
+          if (i.y < @boundary[:y_min] or i.y > @boundary[:y_max])
+        raise UnsafeOutputError, "Found non-nil Z-value #{i.z} in output" \
+          if not i.z.nil?
+      end
+    end
 
     def send_line(line)
       @output.send(output_message, coordinate_format(line[0].x))
