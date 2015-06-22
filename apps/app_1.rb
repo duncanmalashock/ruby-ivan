@@ -5,32 +5,61 @@ config_params = {
 }
 sender1 = TeensyVSender.new(config_params)
 
-star_geometry = {
+cube_geometry = {
   points: [ 
-    [45, 0],
-    [128, 255],
-    [210, 0],
-    [0, 165],
-    [255,165]
+    [-1,-1,1],
+    [1,-1,1], 
+    [1,1,1],
+    [-1,1,1],
+    [-1,1,-1],
+    [1,1,-1],
+    [-1,-1,-1],
+    [1,-1,-1]
   ],
   lines: [
     [0, 1],
     [1, 2],
     [2, 3],
+    [3, 0],
     [3, 4],
-    [4, 0]
+    [2, 5],
+    [1, 7],
+    [4, 6],
+    [4, 5],
+    [0, 6],
+    [6, 7],
+    [7, 5]
   ]
 }
 
-z_rot = -0.6
-loop do
-  z_rot += 0.01
-  glyph1 = Glyph.new(star_geometry)
-  sender1.send_buffer(glyph1 \
-    .translate([-128, -128, nil]) \
-    .scale([0.5, 0.5, nil]) \
-    .rotate_z(z_rot) \
-    .translate([128, 128, nil]) \
-    .instructions)
-  sleep 0.001
-end
+alphabet = {
+  a: {
+    points: [ 
+      [0,0],
+      [0,8], 
+      [4,12], 
+      [8,8],
+      [8,0],
+      [0,4],
+      [8,4]
+    ],
+    lines: [
+      [0, 1],
+      [1, 2],
+      [2, 3],
+      [3, 4],
+      [5, 6]
+    ]
+  }
+}
+
+glyph1 = Glyph.new(alphabet[:a])
+buffer1 = glyph1 \
+  .translate([-6, -6, nil]) \
+  .scale([8, 8, nil]) \
+  .rotate_y(0.03) \
+  .rotate_z(0.2) \
+  .project \
+  .translate([128, 128, nil]) \
+  .instructions
+sender1.send_buffer(buffer1)
