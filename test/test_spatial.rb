@@ -21,12 +21,16 @@ end
 describe Spatial do
   describe "when included in a class with 3D points" do
     before do
-      @spatial_type_3D = ThreeDSpatialClassDouble.new
+      @spatial_type_3D = @object = ThreeDSpatialClassDouble.new
     end
 
     describe "after initialization" do
+      include SpatialInterfaceTest
       it "has the right number of instructions" do
         assert_equal 1, @spatial_type_3D.points.length
+      end
+      it "responds to the Spatial interface" do
+        test_implements_spatial_interface
       end
     end
 
@@ -51,12 +55,16 @@ describe Spatial do
 
   describe "when included in a class with 2D points" do
     before do
-      @spatial_type_2D = TwoDSpatialClassDouble.new
+      @spatial_type_2D = @object = TwoDSpatialClassDouble.new
     end
 
     describe "after initialization" do
+      include SpatialInterfaceTest
       it "has the right number of instructions" do
         assert_equal 1, @spatial_type_2D.points.length
+      end
+      it "responds to the Spatial interface" do
+        test_implements_spatial_interface
       end
     end
 
