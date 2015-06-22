@@ -1,1 +1,0 @@
-Ruby Gem for communicating with [teensyv](http://github.com/osresearch/teensyv) vector graphics firmware.
