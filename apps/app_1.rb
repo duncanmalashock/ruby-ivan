@@ -1,27 +1,37 @@
 require_relative '../ivan'
 
-require_relative 'usb_teensy_sender'
+config_params = {
+  port: "/dev/tty.usbmodem54121"
+}
+sender1 = TeensyVSender.new(config_params)
 
-min_val = 0
-max_val = 255
-
-square_geometry = {
+star_geometry = {
   points: [ 
-    [min_val, min_val],
-    [min_val, max_val],
-    [max_val, min_val],
-    [max_val, max_val]
+    [45, 0],
+    [128, 255],
+    [210, 0],
+    [0, 165],
+    [255,165]
   ],
   lines: [
     [0, 1],
     [1, 2],
     [2, 3],
-    [3, 0]
+    [3, 4],
+    [4, 0]
   ]
 }
-glyph1 = Glyph.new(square_geometry)
-config_params = {
-  port: "/dev/tty.usbmodem54121"
-}
-sender1 = USBTeensySender.new(config_params)
-sender1.send_buffer(glyph1.instructions)
+
+z_rot = 0.0
+100.times do
+  z_rot += 0.003
+  glyph1 = Glyph.new(star_geometry)
+  sender1.send_buffer(glyph1 \
+    .scale([0.5, 0.5, nil]) \
+    .translate([128, 128, nil]) \
+    .translate([-255, -255, nil]) \
+    .rotate_z(z_rot) \
+    .translate([200, 200, nil]) \
+    .instructions)
+  sleep 0.01
+end
