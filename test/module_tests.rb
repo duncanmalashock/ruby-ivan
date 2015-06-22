@@ -5,5 +5,6 @@ module SpatialInterfaceTest
     assert_respond_to @object, :rotate_x
     assert_respond_to @object, :rotate_y
     assert_respond_to @object, :rotate_z
+    assert_respond_to @object, :project
   end
 end
