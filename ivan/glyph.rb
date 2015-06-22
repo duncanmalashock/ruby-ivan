@@ -1,5 +1,6 @@
 class Glyph
   include Spatial
+  attr_accessor :points
 
   def initialize(geometry)
     @points = geometry[:points].map do |p|
@@ -23,5 +24,4 @@ class Glyph
     end
     my_instructions
   end
-
 end  
