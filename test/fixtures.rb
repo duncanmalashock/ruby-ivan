@@ -1,3 +1,29 @@
+class TeensyVOutputDouble
+  def initialize(port, baud, data_bits, stop_bits)
+  end
+  def write(value)
+    return value
+  end
+end
+
+class ThreeDPointFixture
+  attr_accessor :x, :y, :z
+  def initialize
+    @x = 10
+    @y = 20
+    @z = 30
+  end
+end
+
+class TwoDPointFixture
+  attr_accessor :x, :y, :z
+  def initialize
+    @x = 10
+    @y = 20
+    @z = nil
+  end
+end
+
 module CubeFixture
   def self.geometry
     {
@@ -29,25 +55,13 @@ module CubeFixture
   end
 end
 
-class PointStub
-  def x
-    10
-  end
-  def y
-    20
-  end
-  def z
-    nil
-  end
-end
-
 module BufferFixture
   def self.instructions
     [
-      PointStub.new,
-      PointStub.new,
-      PointStub.new,
-      PointStub.new,
+      TwoDPointFixture.new,
+      TwoDPointFixture.new,
+      TwoDPointFixture.new,
+      TwoDPointFixture.new,
     ]
   end
 end
