@@ -1,4 +1,4 @@
-module Rotatable
+module Spatial
   include Math
   def rotate_x(theta)
     self.points.each do |p|
@@ -35,9 +35,7 @@ module Rotatable
       p[2] = pp[2]
     end
   end
-end
 
-module Translatable
   def translate(delta)
     self.points.each do |p|
       p[0] += delta[0]
@@ -45,9 +43,7 @@ module Translatable
       p[2] += delta[2]
     end
   end
-end
 
-module Scalable
   def scale(delta)
     self.points.each do |p|
       p[0] *= delta[0]
