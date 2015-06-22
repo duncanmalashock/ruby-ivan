@@ -23,8 +23,9 @@ describe TeensyVSender do
     end
 
     it "raises an error if output is unsafe" do
-      @sender.send_buffer(UnsafeBufferFixture.instructions)
-      assert_raises @sender, UnsafeOutputError
+      assert_raises UnsafeOutputError do
+        @sender.send_buffer(UnsafeBufferFixture.instructions)
+      end
     end
   end
 end
