@@ -30,7 +30,8 @@ class Sender
 
     def check_safe(buffer)
       buffer.each do |i|
-        raise UnsafeOutputError, "Found point #{i.inspect} outside output boundary" \
+        raise UnsafeOutputError, "Found point #{i.inspect} outside output \
+          boundary #{@boundary.inspect}" \
           if (!i.screen_safe?(@boundary))
       end
     end
