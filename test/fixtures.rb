@@ -20,7 +20,6 @@ class TwoDPointFixture
   def initialize(x = 10, y = 20)
     @x = x
     @y = y
-    @z = nil
   end
 end
 
