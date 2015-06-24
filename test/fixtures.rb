@@ -57,10 +57,10 @@ end
 module BufferFixture
   def self.instructions
     [
-      TwoDPointFixture.new,
-      TwoDPointFixture.new,
-      TwoDPointFixture.new,
-      TwoDPointFixture.new
+      Point2D.new(10, 20),
+      Point2D.new(10, 20),
+      Point2D.new(10, 20),
+      Point2D.new(10, 20),
     ]
   end
 end
@@ -68,8 +68,8 @@ end
 module UnsafeBufferFixture
   def self.instructions
     [
-      TwoDPointFixture.new(-290, 0),
-      TwoDPointFixture.new(-20, 500)
+      Point2D.new(-290, 0),
+      Point2D.new(-20, 500)
     ]
   end
 end
