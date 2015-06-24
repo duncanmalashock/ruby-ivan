@@ -30,12 +30,8 @@ class Sender
 
     def check_safe(buffer)
       buffer.each do |i|
-        raise UnsafeOutputError, "Found X-value #{i.x} outside output boundary" \
-          if (i.x < @boundary[:x_min] or i.x > @boundary[:x_max])
-        raise UnsafeOutputError, "Found Y-value #{i.y} outside output boundary" \
-          if (i.y < @boundary[:y_min] or i.y > @boundary[:y_max])
-        raise UnsafeOutputError, "Found non-nil Z-value #{i.z} in output" \
-          if not i.z.nil?
+        raise UnsafeOutputError, "Found point #{i.inspect} outside output boundary" \
+          if (!i.screen_safe?(@boundary))
       end
     end
 
