@@ -1,6 +1,7 @@
-class Point3D
-  attr_accessor :x, :y, :z
-  def initialize (x, y, z = nil)
+class Point3D < Point
+  attr_accessor :z
+
+  def initialize (x, y, z)
     @x = x;
     @y = y;
     @z = z;
