@@ -1,3 +1,6 @@
+# Point is an abstract class, and is not meant to be instantiated.
+# Instantiate Point2D and Point3D objects for applications.
+
 class Point
   include Math
   attr_accessor :x, :y
