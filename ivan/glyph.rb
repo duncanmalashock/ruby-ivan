@@ -1,3 +1,9 @@
+class LineStructError < Exception
+end
+
+class LineIndexRangeError < Exception
+end
+
 class Glyph
   include Spatial
   attr_accessor :points
@@ -24,4 +30,4 @@ class Glyph
     end
     my_instructions
   end
-end  
+end

@@ -1,3 +1,9 @@
+class OutputInitError < Exception
+end
+
+class UnsafeOutputError < Exception
+end
+
 # Sender is an abstract class, and is not meant to be instantiated.
 # Subclass it for the requirements of your application's display hardware.
 
