@@ -18,18 +18,18 @@ class Sender
     end
   end
 
-  def send_buffer(instructions)
-    check_safe(instructions)
-    pre_send_buffer(instructions)
-    instructions.each_slice(2) do |slice|
+  def send_buffer(buffer)
+    check_safe(buffer)
+    pre_send_buffer(buffer)
+    buffer.each_slice(2) do |slice|
       send_line(slice)
     end
   end
 
   private
 
-    def check_safe(instructions)
-      instructions.each do |i|
+    def check_safe(buffer)
+      buffer.each do |i|
         raise UnsafeOutputError, "Found X-value #{i.x} outside output boundary" \
           if (i.x < @boundary[:x_min] or i.x > @boundary[:x_max])
         raise UnsafeOutputError, "Found Y-value #{i.y} outside output boundary" \
@@ -52,7 +52,7 @@ class Sender
       raise NotImplementedError
     end
 
-    def pre_send_buffer(instructions)
+    def pre_send_buffer(buffer)
       raise NotImplementedError
     end
 
