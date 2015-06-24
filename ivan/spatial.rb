@@ -3,7 +3,7 @@ module Spatial
 
   def transform_points
     self.points = points.map do |p|
-      p = Point.new(*yield(p))
+      p = Point3D.new(*yield(p))
     end
     return self
   end
@@ -50,8 +50,8 @@ module Spatial
     end
   end
 
-  def project(x = 0, y = 0, z = -10.0)
-    pov = Point.new(x, y, z)
+  def project(x = 0, y = 0, z = -125.0)
+    pov = Point3D.new(x, y, z)
     transform_points do |p|
       [ pov.z * (p.x - pov.x) / (p.z + pov.z) + pov.x,
         pov.z * (p.y - pov.y) / (p.z + pov.z) + pov.y,

@@ -10,7 +10,7 @@ class Glyph
 
   def initialize(geometry)
     @points = geometry[:points].map do |p|
-      Point.new(*p)
+      Point3D.new(*p)
     end
     @lines = geometry[:lines]
     @lines.each do |l|
