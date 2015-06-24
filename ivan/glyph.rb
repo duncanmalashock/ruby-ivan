@@ -5,7 +5,6 @@ class LineIndexRangeError < Exception
 end
 
 class Glyph
-  include Spatial
   attr_accessor :points
 
   def initialize(geometry)
