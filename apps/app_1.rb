@@ -53,13 +53,16 @@ alphabet = {
   }
 }
 
-glyph1 = Glyph.new(alphabet[:a])
-buffer1 = glyph1 \
-  .translate([-6, -6, nil]) \
-  .scale([8, 8, nil]) \
-  .rotate_y(0.03) \
-  .rotate_z(0.2) \
-  .project \
-  .translate([128, 128, nil]) \
-  .instructions
-sender1.send_buffer(buffer1)
+y_rot = 0;
+loop do
+  glyph1 = Glyph.new(cube_geometry)
+  buffer1 = glyph1 \
+    .scale([40,40,40]) \
+    .rotate_y(y_rot) \
+    .project \
+    .translate([128, 128, nil]) \
+    .instructions
+  sender1.send_buffer(buffer1)
+  y_rot += 0.01
+  sleep 0.01
+end
