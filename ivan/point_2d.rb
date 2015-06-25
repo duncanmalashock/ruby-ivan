@@ -11,7 +11,7 @@ class Point2D < Point
     @y < boundary[:y_max]
   end
 
-  def translate(delta)
+  def translate_2D(delta)
     self.to_2D(
       [ @x + delta[0],
         @y + delta[1] ] )

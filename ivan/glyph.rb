@@ -21,6 +21,8 @@ class Glyph
   end
 
   [ :translate,
+    :translate_2D,
+    :translate_3D,
     :scale,
     :rotate_x,
     :rotate_y,
