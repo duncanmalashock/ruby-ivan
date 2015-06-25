@@ -22,11 +22,12 @@ class Glyph
 
   [ :translate,
     :translate_2D,
-    :translate_3D,
     :scale,
+    :scale2D,
     :rotate_x,
     :rotate_y,
-    :rotate_z ].each do |method_name|
+    :rotate_z,
+    :rotate_z_2D ].each do |method_name|
     define_method(method_name) do |param|
       @points = @points.map do |p|
         p.send(method_name, param)

@@ -17,14 +17,14 @@ class Point2D < Point
         @y + delta[1] ] )
   end
 
-  def translate_3D(delta)
+  def translate(delta)
     self.to_3D(
       [ @x + delta[0],
         @y + delta[1],
         @z + delta[2] ] )
   end
 
-  def scale(delta)
+  def scale_2D(delta)
     self.to_2D(
       [ @x * delta[0],
         @y * delta[1] ] )
@@ -44,7 +44,7 @@ class Point2D < Point
         @x * sin(theta) ] )
   end
 
-  def rotate_z(theta)
+  def rotate_z_2D(theta)
     self.to_2D(
       [ @x * cos(theta) - @y * sin(theta),
         @x * sin(theta) + @y * cos(theta) ] )
