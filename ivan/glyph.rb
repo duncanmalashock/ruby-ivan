@@ -20,6 +20,26 @@ class Glyph
     end
   end
 
+  [ :translate,
+    :scale,
+    :rotate_x,
+    :rotate_y,
+    :rotate_z ].each do |method_name|
+    define_method(method_name) do |param|
+      @points = @points.map do |p|
+        p.send(method_name, param)
+      end
+      return self
+    end
+  end
+
+  def project(x = 0, y = 0, z = -125)
+    @points = @points.map do |p|
+      p.project(x, y, z)
+    end
+    return self
+  end
+
   def instructions
     my_instructions = []
     @lines.each do |l|
