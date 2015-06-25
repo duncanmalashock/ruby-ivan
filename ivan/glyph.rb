@@ -23,7 +23,7 @@ class Glyph
   [ :translate,
     :translate_2D,
     :scale,
-    :scale2D,
+    :scale_2D,
     :rotate_x,
     :rotate_y,
     :rotate_z,
