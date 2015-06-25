@@ -15,7 +15,7 @@ class Point2D < Point
     self.to_3D(
       [ @x + delta[0],
         @y + delta[1],
-        @z + delta[2] ] )
+        delta[2] ] )
   end
 
   def translate_2D(delta)
@@ -28,7 +28,7 @@ class Point2D < Point
     self.to_3D ( 
       [ @x * delta[0],
         @y * delta[1],
-        @z * delta[2] ] )
+        0 ] )
   end
 
   def scale_2D(delta)
