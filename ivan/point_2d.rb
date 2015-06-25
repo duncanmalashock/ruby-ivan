@@ -11,17 +11,24 @@ class Point2D < Point
     @y < boundary[:y_max]
   end
 
+  def translate(delta)
+    self.to_3D(
+      [ @x + delta[0],
+        @y + delta[1],
+        @z + delta[2] ] )
+  end
+
   def translate_2D(delta)
     self.to_2D(
       [ @x + delta[0],
         @y + delta[1] ] )
   end
 
-  def translate(delta)
-    self.to_3D(
-      [ @x + delta[0],
-        @y + delta[1],
-        @z + delta[2] ] )
+  def scale(delta)
+    self.to_3D ( 
+      [ @x * delta[0],
+        @y * delta[1],
+        @z * delta[2] ] )
   end
 
   def scale_2D(delta)
@@ -42,6 +49,13 @@ class Point2D < Point
       [ @x * cos(theta),
         @y,
         @x * sin(theta) ] )
+  end
+
+  def rotate_z(theta)
+    self.to_3D ( 
+      [ @x * cos(theta) - @y * sin(theta),
+        @x * sin(theta) + @y * cos(theta),
+        @z ] )
   end
 
   def rotate_z_2D(theta)
