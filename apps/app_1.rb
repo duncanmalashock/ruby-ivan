@@ -60,7 +60,7 @@ loop do
     .scale([40,40,40]) \
     .rotate_y(y_rot) \
     .project \
-    .translate([128, 128, nil]) \
+    .translate([128, 128]) \
     .instructions
   sender1.send_buffer(buffer1)
   y_rot += 0.01
