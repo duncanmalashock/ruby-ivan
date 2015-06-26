@@ -19,25 +19,26 @@ describe Point2D do
 
   describe "when initialized with x and y parameters" do
     it "responds correctly to x" do
-      assert_respond_to @a_point, :x
-      assert_equal 1.0, @a_point.x
+      @a_point.must_respond_to :x
+      @a_point.x.must_equal 1.0
     end
     it "responds correctly to y" do
-      assert_respond_to @a_point, :y
-      assert_equal 2.0, @a_point.y
+      @a_point.must_respond_to :y
+      @a_point.y.must_equal 2.0
     end
   end
 
   describe "when screen_safe? is run with a valid boundary" do
     it "responds true" do
-      assert_respond_to @a_point, :screen_safe?
-      assert_equal true, @a_point.screen_safe?(@a_boundary)
+      @a_point.must_respond_to :screen_safe?
+      @a_point.screen_safe?(@a_boundary).must_equal true
     end
   end
 
   describe "when screen_safe? is run with an invalid boundary" do
     it "responds false" do
-      assert_equal false, @a_point.screen_safe?(@another_boundary)
+      @a_point.must_respond_to :screen_safe?
+      @a_point.screen_safe?(@another_boundary).must_equal false
     end
   end
 

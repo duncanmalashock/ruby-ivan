@@ -8,12 +8,12 @@ describe Glyph do
 
     describe "after initialization" do
       it "has the right number of instructions" do
-        assert_equal 24, @cube.instructions.length
+        @cube.instructions.length.must_equal 24
       end
       it "has the correct first coordinate" do
-        assert_equal -1.0, @cube.instructions[0].x
-        assert_equal -1.0, @cube.instructions[0].y
-        assert_equal 1.0, @cube.instructions[0].z
+        @cube.instructions[0].x.must_equal -1.0
+        @cube.instructions[0].y.must_equal -1.0
+        @cube.instructions[0].z.must_equal 1.0
       end
     end
   end

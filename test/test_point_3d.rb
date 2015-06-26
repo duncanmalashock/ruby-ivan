@@ -72,9 +72,7 @@ describe Point3D do
 
   describe "after projecting to 2D" do
     it "returns a Point2D with no #z attribute" do
-      assert_raises NoMethodError do
-        @a_point.project().z
-      end
+      proc { @a_point.project().z }.must_raise NoMethodError
     end
     it "returns with the correct coordinates" do
       @projected_point = @a_point.project()

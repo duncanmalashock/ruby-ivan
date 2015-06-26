@@ -10,7 +10,7 @@ describe TeensyVSender do
 
   describe "when initialized correctly" do
     it "sends post_initialize to itself" do
-      assert_kind_of TeensyVSender, @sender
+      @sender.must_be_kind_of TeensyVSender
       assert_send [@sender, :post_initialize, @config_params]
     end
   end
@@ -23,9 +23,8 @@ describe TeensyVSender do
     end
 
     it "raises an error if output is unsafe" do
-      assert_raises UnsafeOutputError do
-        @sender.send_buffer(UnsafeBufferFixture.instructions)
-      end
+      proc { @sender.send_buffer(UnsafeBufferFixture.instructions) } \
+        .must_raise UnsafeOutputError
     end
   end
 end
