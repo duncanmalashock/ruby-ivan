@@ -5,7 +5,12 @@ class LineIndexRangeError < Exception
 end
 
 class Glyph
+  extend HasTransforms
+
   attr_accessor :points
+  has_transforms :translate, :translate_2D, 
+    :scale, :scale_2D, :rotate_x,
+    :rotate_y, :rotate_z, :rotate_z_2D
 
   def initialize(geometry)
     @points = geometry[:points].map do |p|
@@ -17,22 +22,6 @@ class Glyph
         if l.length != 2
       raise LineIndexRangeError, "Line vertex with invalid point index" \
         if not @points[l[0]] or not @points[l[1]]
-    end
-  end
-
-  [ :translate,
-    :translate_2D,
-    :scale,
-    :scale_2D,
-    :rotate_x,
-    :rotate_y,
-    :rotate_z,
-    :rotate_z_2D ].each do |method_name|
-    define_method(method_name) do |param|
-      @points = @points.map do |p|
-        p.send(method_name, param)
-      end
-      return self
     end
   end
 
