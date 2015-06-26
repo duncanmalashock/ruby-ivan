@@ -25,6 +25,10 @@ class Glyph
     end
   end
 
+  def self.new_from_model(model)
+    new(Ivan::Models[model])
+  end
+
   def project(x = 0, y = 0, z = -125)
     @points = @points.map do |p|
       p.project(x, y, z)
