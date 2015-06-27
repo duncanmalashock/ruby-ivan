@@ -11,6 +11,17 @@ class Point2D < Point
     @y < boundary[:y_max]
   end
 
+  def self.transforms
+    return [:translate,
+            :translate_2D,
+            :scale,
+            :scale_2D,
+            :rotate_x,
+            :rotate_y,
+            :rotate_z,
+            :rotate_z_2D]
+  end
+
   def translate(delta)
     self.to_3D(
       [ @x + delta[0],

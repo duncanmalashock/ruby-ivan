@@ -7,6 +7,14 @@ class Point3D < Point
     @z = z;
   end
 
+  def self.transforms
+    return [:translate,
+            :scale,
+            :rotate_x,
+            :rotate_y,
+            :rotate_z]
+  end
+
   def translate(delta)
     self.to_3D ( 
       [ @x + delta[0],
