@@ -8,9 +8,7 @@ class Glyph
   extend HasTransforms
 
   attr_accessor :points
-  has_transforms :translate, :translate_2D, 
-    :scale, :scale_2D, :rotate_x,
-    :rotate_y, :rotate_z, :rotate_z_2D
+  has_transforms_for Point2D, Point3D
 
   def initialize(geometry)
     @points = geometry[:points].map do |p|
