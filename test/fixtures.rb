@@ -24,9 +24,9 @@ class TwoDPointFixture
 end
 
 module CubeFixture
-  def self.geometry
-    {
-      points: [ 
+  def geometry
+    return Struct::Geometry.new(
+      [ 
         [-1,-1,1],
         [1,-1,1], 
         [1,1,1],
@@ -36,7 +36,7 @@ module CubeFixture
         [-1,-1,-1],
         [1,-1,-1]
       ],
-      lines: [
+      [
         [0, 1],
         [1, 2],
         [2, 3],
@@ -50,8 +50,9 @@ module CubeFixture
         [6, 7],
         [7, 5]
       ]
-    }
+    )
   end
+  module_function :geometry
 end
 
 module BufferFixture
