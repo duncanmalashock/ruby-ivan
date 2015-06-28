@@ -19,5 +19,4 @@ module HasTransforms
       transform_methods.uniq!
       delegate_transforms(transform_methods)
     end
-
 end
