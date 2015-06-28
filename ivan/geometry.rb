@@ -1,3 +1,9 @@
+class LineStructError < Exception
+end
+
+class LineIndexRangeError < Exception
+end
+
 Struct.new("Geometry", :points, :lines) do
   def valid?
     lines.each do |l|

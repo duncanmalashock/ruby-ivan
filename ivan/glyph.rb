@@ -1,9 +1,3 @@
-class LineStructError < Exception
-end
-
-class LineIndexRangeError < Exception
-end
-
 class Glyph
   extend HasTransforms
 
