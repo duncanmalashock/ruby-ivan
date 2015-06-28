@@ -43,3 +43,19 @@ describe Point2D do
   end
 
 end
+
+describe "Point2D Class" do
+  before do
+    @start_point = Point2D.new(1.0, 0.0)
+    @end_point = Point2D.new(2.0, 4.0)
+  end
+
+  describe "when initialized with x and y parameters" do
+    it "responds correctly to x" do
+      @interp = Point2D.interpolate(@start_point, @end_point, 0.5)
+      @interp.x.must_equal 1.5
+      @interp.y.must_equal 2
+    end
+  end
+
+end

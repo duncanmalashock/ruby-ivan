@@ -4,6 +4,13 @@ class Point2D < Point
     @y = y;
   end
 
+  def self.interpolate(point1, point2, weight)
+    return Point2D.new(
+        point1.x + (point2.x - point1.x) * weight,
+        point1.y + (point2.y - point1.y) * weight
+      )
+  end
+
   def screen_safe?(boundary)
     return ( @x > boundary[:x_min] and \
              @x < boundary[:x_max] and \
