@@ -17,7 +17,7 @@ class Glyph
     return new(Ivan::Models[model])
   end
 
-  def project(x = 0, y = 0, z = -125)
+  def project(x = 0, y = 0, z = Ivan.default_focal_length)
     @points = @points.map do |p|
       p.project(x, y, z)
     end

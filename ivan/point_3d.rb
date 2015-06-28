@@ -50,7 +50,7 @@ class Point3D < Point
         @z ] )
   end
 
-  def project(x = 0, y = 0, z = -125.0)
+  def project(x = 0, y = 0, z = Ivan.default_focal_length)
     pov = Point3D.new(x, y, z)
     return self.to_2D ( 
       [ pov.z * (@x - pov.x) / (@z + pov.z) + pov.x,

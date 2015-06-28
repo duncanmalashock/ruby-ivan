@@ -11,10 +11,15 @@ require_relative 'ivan/teensyv_sender'
 
 module Ivan
   @model_path = nil
+  @default_focal_length = -125.0
   Models = {}
   
   def set_model_path(path)
     @model_path = path
+  end
+
+  def default_focal_length
+    return @default_focal_length
   end
 
   def load_model(model_name)
@@ -42,5 +47,6 @@ module Ivan
     end
   end
   
-  module_function :set_model_path, :load_model, :copy_model, :save_model
+  module_function :set_model_path, :load_model, :copy_model, :save_model,
+    :default_focal_length
 end
