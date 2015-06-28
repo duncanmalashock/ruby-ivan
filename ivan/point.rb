@@ -6,7 +6,7 @@ class Point
   attr_accessor :x, :y
 
   def screen_safe?(boundary)
-    false
+    return false
   end
 
   def self.transforms

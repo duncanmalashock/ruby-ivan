@@ -16,35 +16,35 @@ class Point3D < Point
   end
 
   def translate(delta)
-    self.to_3D ( 
+    return self.to_3D ( 
       [ @x + delta[0],
         @y + delta[1],
         @z + delta[2] ] )
   end
 
   def scale(delta)
-    self.to_3D ( 
+    return self.to_3D ( 
       [ @x * delta[0],
         @y * delta[1],
         @z * delta[2] ] )
   end
 
   def rotate_x(theta)
-    self.to_3D ( 
+    return self.to_3D ( 
       [ @x,
         @y * cos(theta) - @z * sin(theta),
         @y * sin(theta) + @z * cos(theta) ] )
   end
 
   def rotate_y(theta)
-    self.to_3D ( 
+    return self.to_3D ( 
       [ @z * sin(theta) + @x * cos(theta),
         @y,
         @z * cos(theta) - @x * sin(theta) ] )
   end
 
   def rotate_z(theta)
-    self.to_3D ( 
+    return self.to_3D ( 
       [ @x * cos(theta) - @y * sin(theta),
         @x * sin(theta) + @y * cos(theta),
         @z ] )
@@ -52,7 +52,7 @@ class Point3D < Point
 
   def project(x = 0, y = 0, z = -125.0)
     pov = Point3D.new(x, y, z)
-    self.to_2D ( 
+    return self.to_2D ( 
       [ pov.z * (@x - pov.x) / (@z + pov.z) + pov.x,
         pov.z * (@y - pov.y) / (@z + pov.z) + pov.y ] )
   end
