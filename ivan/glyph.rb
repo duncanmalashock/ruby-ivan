@@ -24,7 +24,7 @@ class Glyph
   end
 
   def self.new_from_model(model)
-    new(Ivan::Models[model])
+    return new(Ivan::Models[model])
   end
 
   def project(x = 0, y = 0, z = -125)
@@ -41,6 +41,6 @@ class Glyph
         my_instructions << @points[p]
       end
     end
-    my_instructions
+    return my_instructions
   end
 end

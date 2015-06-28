@@ -24,11 +24,11 @@ class TeensyVSender < Sender
     end
 
     def output_message
-      return  :write
+      return :write
     end
 
     def coordinate_format(value)
-      return  value.to_i.chr
+      return value.to_i.chr
     end
 
     def transmit_instruction_length(length)
