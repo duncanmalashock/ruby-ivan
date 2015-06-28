@@ -11,15 +11,11 @@ class Glyph
   has_transforms_for Point2D, Point3D
 
   def initialize(geometry)
-    @points = geometry[:points].map do |p|
-      Point3D.new(*p)
-    end
-    @lines = geometry[:lines]
-    @lines.each do |l|
-      raise LineStructError, "This line is not a 2-tuple" \
-        if l.length != 2
-      raise LineIndexRangeError, "Line vertex with invalid point index" \
-        if not @points[l[0]] or not @points[l[1]]
+    if geometry.valid? then
+      @points = geometry[:points].map do |p|
+        Point3D.new(*p)
+      end
+      @lines = geometry[:lines]
     end
   end
 
