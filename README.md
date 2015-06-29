@@ -14,6 +14,12 @@ _ivan_ currently handles:
 * Saving/loading geometry data to/from Yaml files
 * Serial port output to hardware via USB
 
+### To Do
+* Test coverage (right now I'm using Minitest with a combination of assertions and spec style)
+* Line clipping using the [Cohen-Sutherland](https://en.wikipedia.org/wiki/Cohen%E2%80%93Sutherland_algorithm) algorithm or something similar
+* Grouping / composing Glyphs together, so they can be transformed as a single unit.
+* Set up Travis CI
+
 ### Installation
 _ivan_ isn't a gem...yet. But it will be soon. For now, if you want to try it out/run the tests,
 
@@ -40,12 +46,6 @@ buffer1 = glyph1 \
    
 sender1.send_buffer(buffer1)
 ```
-
-### To Do
-* Test coverage (right now I'm using Minitest with a combination of assertions and spec style)
-* Line clipping using the [Cohen-Sutherland](https://en.wikipedia.org/wiki/Cohen%E2%80%93Sutherland_algorithm) algorithm or something similar
-* Grouping / composing Glyphs together, so they can be transformed as a single unit.
-* Set up Travis CI
 
 ### Why Vector Monitors? ###
 Ever seen one? They're awesome. Vector monitors used to be _the_ way to display computer graphics from the 1960s up until the mid-80s, when framebuffer technology advanced to the point where vector display quality was no longer competitive.
