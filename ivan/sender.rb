@@ -37,10 +37,9 @@ class Sender
     end
 
     def send_line(line)
-      @output.send(output_message, coordinate_format(line[0].x))
-      @output.send(output_message, coordinate_format(line[0].y))
-      @output.send(output_message, coordinate_format(line[1].x))
-      @output.send(output_message, coordinate_format(line[1].y))
+      [line[0].x, line[0].y, line[1].x, line[1].y].each do |coord|
+        @output.send(output_message, coordinate_format(coord) )
+      end
     end
 
     # Override these methods in concrete subclasses
