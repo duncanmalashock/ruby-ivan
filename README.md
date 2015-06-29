@@ -33,7 +33,7 @@ Ivan.load_model(:cube)
 glyph1 = Glyph.new_from_model(:cube)
 buffer1 = glyph1 \
   .scale([40,40,40]) \
-  .rotate_y(rot) \
+  .rotate_y(0.3) \
   .project \
   .translate_2D([128, 128]) \
   .instructions
