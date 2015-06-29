@@ -7,8 +7,10 @@ _ivan_ is a Ruby library for creating imagery on analog [vector monitors](https:
 ### Features ###
 _ivan_ currently handles:
 
-* Scaling & translation
+* Creating new Glyphs (instantiations of geometric models)
+* Scaling & translating Glyphs
 * 3D perspective projection & rotation
+* Determining whether output is screen-safe
 * Saving/loading geometry data to/from Yaml files
 * Serial port output to hardware via USB
 
@@ -43,6 +45,7 @@ sender1.send_buffer(buffer1)
 * Test coverage (right now I'm using Minitest with a combination of assertions and spec style)
 * Line clipping using the [Cohen-Sutherland](https://en.wikipedia.org/wiki/Cohen%E2%80%93Sutherland_algorithm) algorithm or something similar
 * Grouping / composing Glyphs together, so they can be transformed as a single unit.
+* Set up Travis CI
 
 ### Why Vector Monitors? ###
 Ever seen one? They're awesome. Vector monitors used to be _the_ way to display computer graphics from the 1960s up until the mid-80s, when framebuffer technology advanced to the point where vector display quality was no longer competitive.
