@@ -10,3 +10,4 @@ gem 'guard'
 gem 'guard-minitest'
 gem 'rake'
 gem 'pry'
+gem "codeclimate-test-reporter"
