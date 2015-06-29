@@ -4,8 +4,17 @@
 
 _ivan_ is a Ruby library for creating imagery on analog [vector monitors](https://en.wikipedia.org/wiki/Vector_monitor). 
 
+### Features ###
+_ivan_ currently handles:
+
+* Scaling & translation
+* 3D perspective projection & rotation
+* Saving/loading geometry data to/from Yaml files
+* Serial port output to hardware via USB
+
 ### Installation
-_ivan_ isn't a gem...yet. For now, if you want to try it out/run the tests,
+_ivan_ isn't a gem...yet. But it will be soon. For now, if you want to try it out/run the tests,
+
 1. Clone/download the repo
 2. Run *bundle install*
 3. Create test applications inside the project directory, requiring the 'ivan.rb' file.
