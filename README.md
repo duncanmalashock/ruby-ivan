@@ -32,7 +32,7 @@ _ivan_ isn't a gem...yet. But it will be soon. For now, if you want to try it ou
 ### Example Application
 Because of hardware dependencies, you probably won't get an application running for now unless you're me or [@osresearch](https://github.com/osresearch). In the meantime for the curious, my implementation talks to a [Teensy 3.1](https://www.pjrc.com/teensy/teensy31.html) running the [teensyv](https://github.com/osresearch/teensyv) program via its serial input. You'll need a USB connection (with its device path correctly specified) to a Teensy 3.1 running the teensyv C code.
 ```
-require_relative '../ivan'
+require_relative 'ivan'
 
 Ivan.set_model_path("#{ File.dirname($0) }/models/")
 sender1 = TeensyVSender.new({ port: "/dev/tty.usbmodem54121" })
