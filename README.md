@@ -17,7 +17,7 @@ _ivan_ currently handles:
 * Serial port output to hardware via USB
 
 ### To Do
-* Test coverage (right now I'm using Minitest with a combination of assertions and spec style)
+* Test coverage – Right now I'm using Minitest with a combination of assertions and spec style. This needs help.
 * Line clipping using the [Cohen-Sutherland](https://en.wikipedia.org/wiki/Cohen%E2%80%93Sutherland_algorithm) algorithm or something similar
 * Grouping / composing Glyphs together, so they can be transformed as a single unit.
 
