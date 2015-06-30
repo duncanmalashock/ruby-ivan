@@ -1,6 +1,8 @@
 require 'minitest/autorun'
 require "minitest/pride"
-require "pry"
+require "codeclimate-test-reporter"
+
+CodeClimate::TestReporter.start
 
 require_relative "../ivan"
 require_relative "fixtures"
