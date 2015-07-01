@@ -20,6 +20,7 @@ class TwoDPointFixture
   def initialize(x = 10, y = 20)
     @x = x
     @y = y
+    @z = 0
   end
 end
 
@@ -58,10 +59,10 @@ end
 module BufferFixture
   def self.instructions
     [
-      Point2D.new(10, 20),
-      Point2D.new(10, 20),
-      Point2D.new(10, 20),
-      Point2D.new(10, 20),
+      Point.new(10, 20, 0),
+      Point.new(10, 20, 0),
+      Point.new(10, 20, 0),
+      Point.new(10, 20, 0),
     ]
   end
 end
@@ -69,8 +70,8 @@ end
 module UnsafeBufferFixture
   def self.instructions
     [
-      Point2D.new(-290, 0),
-      Point2D.new(-20, 500)
+      Point.new(-290, 0, 0),
+      Point.new(-20, 500, 0)
     ]
   end
 end

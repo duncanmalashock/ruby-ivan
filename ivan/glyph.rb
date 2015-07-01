@@ -2,12 +2,12 @@ class Glyph
   extend HasTransforms
 
   attr_accessor :points
-  has_transforms_for Point2D, Point3D
+  has_transforms_for Point
 
   def initialize(geometry)
     if geometry.valid? then
       @points = geometry[:points].map do |p|
-        Point3D.new(*p)
+        Point.new(*p)
       end
       @lines = geometry[:lines]
     end
