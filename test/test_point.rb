@@ -2,7 +2,20 @@ require_relative "minitest_helper"
 
 describe Point do
   before do
-    @a_point = Point.new(x = 10, y = 20, z = 30)
+    @a_point = Point.new(10, 20, 30)
+    @another_point = Point.new(1.0, 2.0, 0)
+    @a_boundary = {
+      x_min: 0,
+      y_min: 0,
+      x_max: 255,
+      y_max: 255,
+    }
+    @another_boundary = {
+      x_min: 0,
+      y_min: 0,
+      x_max: 1,
+      y_max: 1,
+    }
   end
 
   describe "when initialized with x, y, and z parameters" do
@@ -19,7 +32,7 @@ describe Point do
       assert_equal 30, @a_point.z
     end
 
-    it "is not screen safe" do
+    it "is not screen safe if z != 0" do
       assert_respond_to @a_point, :screen_safe?
       assert_equal false, @a_point.screen_safe?({
         x_min: 0,
@@ -27,6 +40,20 @@ describe Point do
         y_min: 0,
         y_max: 200
       })
+    end
+
+    describe "when screen_safe? is run with a valid boundary" do
+      it "responds true" do
+        @another_point.must_respond_to :screen_safe?
+        @another_point.screen_safe?(@a_boundary).must_equal true
+      end
+    end
+
+    describe "when screen_safe? is run with an invalid boundary" do
+      it "responds false" do
+        @another_point.must_respond_to :screen_safe?
+        @another_point.screen_safe?(@another_boundary).must_equal false
+      end
     end
   end
 
