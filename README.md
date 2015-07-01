@@ -55,7 +55,7 @@ Ever seen one? They're awesome. Vector monitors used to be _the_ way to display 
 But even though they're totally outmoded, vector monitors still have something pixel-based monitors don't: 
 
 1. Infinite resolution. Vector lines are perfectly smooth, like ink on a page.
-2. Brightness. Lines on continuous-phosphor screens _glow like they were on fire_, and it makes drawing and animating even simple shapes exciting and fun.
+2. The brightness of the images on the screen makes drawing and animating even simple shapes exciting.
 
 Vector graphics were used in:
 
