@@ -18,6 +18,13 @@ describe Point do
     }
   end
 
+  describe "Point class" do
+    it "responds correctly to #transforms" do
+      assert_equal [:translate, :scale, :rotate_x, :rotate_y, \
+        :rotate_z ], @a_point.class.transforms
+    end
+  end
+
   describe "when initialized with x, y, and z parameters" do
     it "responds correctly to x" do
       assert_respond_to @a_point, :x
