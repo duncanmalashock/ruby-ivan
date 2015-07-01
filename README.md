@@ -4,7 +4,7 @@
 
 # ivan
 
-_ivan_ is a Ruby library for creating imagery on analog [vector monitors](https://en.wikipedia.org/wiki/Vector_monitor). 
+_ivan_ is a Ruby library for creating imagery on analog [vector monitors](https://en.wikipedia.org/wiki/Vector_monitor), using [@osresearch](https://github.com/osresearch)'s [teensyv](https://github.com/osresearch/teensyv) control firmware.
 
 ### Features ###
 _ivan_ currently handles:
