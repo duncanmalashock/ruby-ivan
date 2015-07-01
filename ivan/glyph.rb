@@ -1,7 +1,6 @@
 class Glyph
   extend HasTransforms
 
-  attr_accessor :points
   has_transforms_for Point
 
   def initialize(geometry)
