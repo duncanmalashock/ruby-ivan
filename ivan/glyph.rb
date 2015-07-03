@@ -1,7 +1,12 @@
 class Glyph
   extend HasTransforms
+  attr_reader :children
 
   has_transforms_for Point
+
+  def self.new_from_model(model)
+    return new(Ivan::Models[model])
+  end
 
   def initialize(geometry)
     if geometry.valid? then
@@ -9,16 +14,20 @@ class Glyph
         Point.new(*p)
       end
       @lines = geometry[:lines]
+      @children = []
     end
   end
 
-  def self.new_from_model(model)
-    return new(Ivan::Models[model])
+  def << (child_glyph)
+    @children << child_glyph
   end
 
   def project(x = 0, y = 0, z = Ivan.default_focal_length)
     @points = @points.map do |p|
       p.project(x, y, z)
+    end
+    @children = @children.map do |c|
+      c.send(:project, x, y, z)
     end
     return self
   end
@@ -30,6 +39,9 @@ class Glyph
         my_instructions << @points[p]
       end
     end
-    return my_instructions
+    self.children.each do |c|
+      my_instructions << c.instructions
+    end
+    return my_instructions.flatten
   end
 end

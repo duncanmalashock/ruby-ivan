@@ -6,6 +6,9 @@ module HasTransforms
           @points = @points.map do |p|
             p.send(method_name, param)
           end
+          @children = @children.map do |c|
+            c.send(method_name, param)
+          end
           return self
         end
       end
