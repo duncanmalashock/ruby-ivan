@@ -12,6 +12,7 @@ _ivan_ currently handles:
 * Creating new Glyphs (instantiations of geometric models)
 * Scaling & translating Glyphs
 * 3D perspective projection & rotation
+* Composition of Glyphs inside each other
 * Determining whether output is screen-safe
 * Saving/loading geometry data to/from Yaml files
 * Serial port output to hardware via USB
@@ -19,7 +20,6 @@ _ivan_ currently handles:
 ### To Do
 * Test coverage – Right now I'm using Minitest with a combination of assertions and spec style. This needs help.
 * Line clipping using the [Cohen-Sutherland](https://en.wikipedia.org/wiki/Cohen%E2%80%93Sutherland_algorithm) algorithm or something similar
-* Grouping / composing Glyphs together, so they can be transformed as a single unit.
 * Gemify
 
 ### Installation
