@@ -4,6 +4,7 @@ require_relative 'ivan/point'
 require_relative 'ivan/has_transforms'
 require_relative 'ivan/geometry'
 require_relative 'ivan/glyph'
+require_relative 'ivan/composition'
 require_relative 'ivan/sender'
 require_relative 'ivan/teensyv_sender'
 
@@ -30,16 +31,16 @@ module Ivan
 
   def self.load_models(*model_names)
     model_names.each do |model_name|
-    model_file = File.read("#{ @model_path }/#{ model_name }.yml")
-    if model_file then
-      geom = YAML.load(model_file)
-      if geom.valid? then
-        Models[model_name] = geom
-      end
+      model_file = File.read("#{ @model_path }/#{ model_name }.yml")
+      if model_file then
+        geom = YAML.load(model_file)
+        if geom.valid? then
+          Models[model_name] = geom
+        end
       else
         return false
+      end
     end
-  end
     return true
   end
 
