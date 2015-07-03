@@ -9,10 +9,10 @@ class Point
   end
 
   def screen_safe?(boundary)
-    return ( @x > boundary[:x_min] and \
-             @x < boundary[:x_max] and \
-             @y > boundary[:y_min] and \
-             @y < boundary[:y_max] and \
+    return ( @x >= boundary[:x_min] and \
+             @x <= boundary[:x_max] and \
+             @y >= boundary[:y_min] and \
+             @y <= boundary[:y_max] and \
              @z == 0 )
   end
 
