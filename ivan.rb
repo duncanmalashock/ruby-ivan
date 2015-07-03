@@ -28,14 +28,19 @@ module Ivan
     return @default_focal_length
   end
 
-  def self.load_model(model_name)
+  def self.load_models(*model_names)
+    model_names.each do |model_name|
     model_file = File.read("#{ @model_path }/#{ model_name }.yml")
     if model_file then
       geom = YAML.load(model_file)
       if geom.valid? then
         Models[model_name] = geom
       end
+      else
+        return false
     end
+  end
+    return true
   end
 
   def self.copy_model(source, destination)

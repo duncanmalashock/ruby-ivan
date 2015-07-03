@@ -16,11 +16,11 @@ describe "Ivan module" do
       assert_equal -125.0, Ivan.default_focal_length
     end
   end
-  describe "#load_model" do
+  describe "#load_models" do
     it "returns the model loaded at specified key" do
       # FIXME: this depends on a file called /models/cube.yml
       Ivan.set_model_path("models")
-      assert_kind_of Struct, Ivan.load_model(:cube)
+      assert Ivan.load_models(:cube)
     end
   end
 end
