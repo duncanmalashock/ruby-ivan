@@ -1,6 +1,11 @@
 require_relative "minitest_helper"
 
 describe "Ivan module" do
+  describe "#models" do
+    it "returns the models constant" do
+      # FIXME: Can't test this predictably
+    end
+  end
   describe "#set_model_path" do
     it "returns the path" do
       assert_equal "x", Ivan.set_model_path("x")

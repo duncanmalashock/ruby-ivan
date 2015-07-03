@@ -11,6 +11,10 @@ module Ivan
   @model_path = nil
   @default_focal_length = -125.0
   Models = {}
+
+  def self.models
+    return Models
+  end
   
   def self.set_model_path(path)
     @model_path = path
