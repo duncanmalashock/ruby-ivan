@@ -10,6 +10,9 @@ end
 class Sender
   @output = nil
   @boundary = nil
+
+  attr_reader :boundary
+
   def initialize(config_params)
     begin
       post_initialize(config_params)
