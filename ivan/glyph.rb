@@ -32,7 +32,7 @@ class Glyph
     return self
   end
 
-  def instructions
+  def to_buffer
     my_instructions = []
     @lines.each do |l|
       l.each do |p|
@@ -40,7 +40,7 @@ class Glyph
       end
     end
     self.children.each do |c|
-      my_instructions << c.instructions
+      my_instructions << c.to_buffer
     end
     return my_instructions.flatten
   end

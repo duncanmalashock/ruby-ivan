@@ -18,9 +18,9 @@ class Sender
     end
   end
 
-  def send_buffer(buffer)
+  def send(buffer)
     check_safe(buffer)
-    pre_send_buffer(buffer)
+    pre_send(buffer)
     buffer.each_slice(2) do |slice|
       send_line(slice)
     end
@@ -47,7 +47,7 @@ class Sender
       raise NotImplementedError
     end
 
-    def pre_send_buffer(buffer)
+    def pre_send(buffer)
       raise NotImplementedError
     end
 

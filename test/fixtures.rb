@@ -57,7 +57,7 @@ module CubeFixture
 end
 
 module BufferFixture
-  def self.instructions
+  def self.to_buffer
     [
       Point.new(10, 20, 0),
       Point.new(10, 20, 0),
@@ -68,7 +68,7 @@ module BufferFixture
 end
 
 module UnsafeBufferFixture
-  def self.instructions
+  def self.to_buffer
     [
       Point.new(-290, 0, 0),
       Point.new(-20, 500, 0)

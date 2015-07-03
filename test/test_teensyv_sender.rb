@@ -16,14 +16,14 @@ describe TeensyVSender do
   end
 
   describe "when sending its buffer" do
-    it "sends pre_send_buffer to itself" do
-      @sender.send_buffer(BufferFixture.instructions)
-      assert_send [@sender, :pre_send_buffer, BufferFixture.instructions]
-      assert_send [@sender, :send_line, BufferFixture.instructions[0..1]]
+    it "sends pre_send to itself" do
+      @sender.send(BufferFixture.to_buffer)
+      assert_send [@sender, :pre_send, BufferFixture.to_buffer]
+      assert_send [@sender, :send_line, BufferFixture.to_buffer[0..1]]
     end
 
     it "raises an error if output is unsafe" do
-      proc { @sender.send_buffer(UnsafeBufferFixture.instructions) } \
+      proc { @sender.send(UnsafeBufferFixture.to_buffer) } \
         .must_raise UnsafeOutputError
     end
   end

@@ -19,7 +19,7 @@ class TeensyVSender < Sender
       })
     end
 
-    def pre_send_buffer(buffer)
+    def pre_send(buffer)
       transmit_instruction_length(buffer.length / 2)
     end
 
