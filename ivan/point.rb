@@ -1,3 +1,6 @@
+require "pry"
+require 'pry-byebug'
+
 class Point
   include Math
   attr_reader :x, :y, :z
@@ -89,11 +92,11 @@ class Point
         else
           x1 = x
           y1 = y
+        end
+        points[0] = Point.new(x0,y0)
+        points[1] = Point.new(x1,y1)
       end
-      points[0] = Point.new(x0,y0)
-      points[1] = Point.new(x1,y1)
-    end
-    
+
     end
     
     return points

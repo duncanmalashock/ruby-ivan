@@ -1,11 +1,14 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    byebug (4.0.5)
+      columnize (= 0.9.0)
     celluloid (0.16.0)
       timers (~> 4.0.0)
     codeclimate-test-reporter (0.4.7)
       simplecov (>= 0.7.1, < 1.0.0)
     coderay (1.1.0)
+    columnize (0.9.0)
     docile (1.1.5)
     ffi (1.9.8)
     formatador (0.2.5)
@@ -39,6 +42,9 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
+    pry-byebug (3.1.0)
+      byebug (~> 4.0)
+      pry (~> 0.10)
     rake (10.4.2)
     rb-fsevent (0.9.5)
     rb-inotify (0.9.5)
@@ -66,9 +72,7 @@ DEPENDENCIES
   guard-minitest
   minitest
   pry
+  pry-byebug
   rake
   ruby-prof
   serialport
-
-BUNDLED WITH
-   1.10.2
