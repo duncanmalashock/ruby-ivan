@@ -53,24 +53,47 @@ class Point
     accepted = false
 
     while !accepted do
-      x0 = points[0].x
-      y0 = points[0].y
-      x1 = points[1].x
-      y1 = points[1].y
       outcode0 = points[0].outcode(boundary)
       outcode1 = points[1].outcode(boundary)
-    
       if ( (outcode0 | outcode1) == 0 ) then
         return points
       elsif (outcode0 & outcode1 != 0) then
         return [nil, nil]
       else
-        # puts "it's complicated"
-        accepted = true
-      end
+        if (outcode0 != 0) then
+          outcode_out = outcode0
+        else
+          outcode_out = outcode1
+        end
+        x0 = points[0].x
+        y0 = points[0].y
+        x1 = points[1].x
+        y1 = points[1].y
+        if (outcode_out & TOP != 0) then
+          x = x0 + (x1 - x0) * (boundary[:y_max] - y0) / (y1 - y0)
+          y = boundary[:y_max]
+        elsif (outcode_out & BOTTOM != 0) then
+          x = x0 + (x1 - x0) * (boundary[:y_min] - y0) / (y1 - y0)
+          y = boundary[:y_min]
+        elsif (outcode_out & RIGHT != 0) then
+          y = y0 + (y1 - y0) * (boundary[:x_max] - x0) / (x1 - x0)
+          x = boundary[:x_max]
+        elsif (outcode_out & LEFT != 0) then
+          y = y0 + (y1 - y0) * (boundary[:x_min] - x0) / (x1 - x0)
+          x = boundary[:x_min]
+        end
 
+        if (outcode_out == outcode0) then
+          x0 = x
+          y0 = y
+        else
+          x1 = x
+          y1 = y
+      end
       points[0] = Point.new(x0,y0)
       points[1] = Point.new(x1,y1)
+    end
+    
     end
     
     return points
