@@ -2,6 +2,12 @@ class Point
   include Math
   attr_reader :x, :y, :z
 
+  INSIDE = 0; # 0000
+  LEFT = 1;   # 0001
+  RIGHT = 2;  # 0010
+  BOTTOM = 4; # 0100
+  TOP = 8;    # 1000
+
   def initialize (x = 0, y = 0, z = 0)
     @x = x;
     @y = y;
@@ -22,6 +28,52 @@ class Point
         point1.y + (point2.y - point1.y) * weight,
         point1.z + (point2.z - point1.z) * weight,
       )
+  end
+
+  def outcode(boundary)
+    outcode = 0
+
+    if self.x < boundary[:x_min] then
+      outcode |= LEFT
+    end
+    if self.x > boundary[:x_max] then
+      outcode |= RIGHT
+    end
+    if self.y < boundary[:y_min] then
+      outcode |= BOTTOM
+    end
+    if self.y > boundary[:y_max] then
+      outcode |= TOP
+    end
+
+    return outcode
+  end
+
+  def self.clip_to_boundary(boundary, points)
+    accepted = false
+
+    while !accepted do
+      x0 = points[0].x
+      y0 = points[0].y
+      x1 = points[1].x
+      y1 = points[1].y
+      outcode0 = points[0].outcode(boundary)
+      outcode1 = points[1].outcode(boundary)
+    
+      if ( (outcode0 | outcode1) == 0 ) then
+        return points
+      elsif (outcode0 & outcode1 != 0) then
+        return [nil, nil]
+      else
+        # puts "it's complicated"
+        accepted = true
+      end
+
+      points[0] = Point.new(x0,y0)
+      points[1] = Point.new(x1,y1)
+    end
+    
+    return points
   end
 
   def self.transforms
