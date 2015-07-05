@@ -1,6 +1,3 @@
-require "pry"
-require 'pry-byebug'
-
 class Point
   include Math
   attr_reader :x, :y, :z
