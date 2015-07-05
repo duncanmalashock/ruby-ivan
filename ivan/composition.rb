@@ -16,7 +16,7 @@ class Composition
   end
 
   def normalize(boundary)
-    scale = 0.5
+    scale = 1.0
     trans = 127
     @buffer = @buffer.map do |point|
       point \
