@@ -12,6 +12,7 @@ class Composition
       @buffer[index] = clipped_points[0]
       @buffer[index+1] = clipped_points[1]
     end
+    @buffer.reject! {|p| !p }
     return self
   end
 
