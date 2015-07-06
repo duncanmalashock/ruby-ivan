@@ -24,6 +24,6 @@ class Composition
         .scale([scale, scale, 0])
         .translate([trans, trans, 0])
     end
-    return self
+    return self.clip_to_boundary(boundary)
   end
 end
