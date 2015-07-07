@@ -30,7 +30,7 @@ _ivan_ isn't a gem...yet. But it will be soon. For now, if you want to try it ou
 3. Create test applications inside the project directory, requiring the 'ivan.rb' file.
 
 ### Example Application
-Because of hardware dependencies, you probably won't get an application running for now unless you're me or [@osresearch](https://github.com/osresearch). The Sender object, which is responsible for sending instructions to a device, is implemented as an abstract class which can be subclassed on a per-device basis. My TeensyVSender implementation talks to a [Teensy 3.1](https://www.pjrc.com/teensy/teensy31.html) running the [teensyv](https://github.com/osresearch/teensyv) program via its serial input. To do likewise, you'll need a USB connection to a Teensy 3.1 running the teensyv C code, and to assign its device path to the value of the "port" key in the TeensyVSender constructor. Confused? Good!
+Because of hardware dependencies, you probably won't get an application running for now unless you're me or [@osresearch](https://github.com/osresearch). Although Sender subclasses can be written to send to a device of your choice, my TeensyVSender implementation talks to a [Teensy 3.1](https://www.pjrc.com/teensy/teensy31.html) running the [teensyv](https://github.com/osresearch/teensyv) program via its serial input. To do likewise, you'll need a USB connection to a Teensy 3.1 running the teensyv C code, and to assign its device path to the value of the "port" key in the TeensyVSender constructor. Confused? Good!
 ```
 require_relative 'ivan'
 Ivan.set_model_path("#{ File.dirname($0) }/models/")
