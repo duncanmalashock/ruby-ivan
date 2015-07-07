@@ -76,3 +76,6 @@ DEPENDENCIES
   rake
   ruby-prof
   serialport
+
+BUNDLED WITH
+   1.10.2
