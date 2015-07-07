@@ -37,16 +37,14 @@ Ivan.set_model_path("#{ File.dirname($0) }/models/")
 output = TeensyVSender.new({
   port: "/dev/tty.usbmodem54121"
 })
-Ivan.load_models(:cube, :tetrahedron, :square)
+Ivan.load_models(:cube)
 
-glyph1 = Glyph.new_from_model(:cube) \
+buffer = Glyph.new_from_model(:cube) \
   .scale([90,90,90])
-
-buffer = glyph1 \
   .rotate_y(0.52) \
   .rotate_x(0.79) \
   .project \
-  .to_buffer 
+  .to_buffer
 
 comp = Composition.new(buffer) \
   .normalize(output.boundary)
