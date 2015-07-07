@@ -43,8 +43,8 @@ glyph1 = Glyph.new_from_model(:cube) \
   .scale([90,90,90])
 
 buffer = glyph1 \
-  .rotate_y(rot) \
-  .rotate_x(rot) \
+  .rotate_y(0.52) \
+  .rotate_x(0.79) \
   .project \
   .to_buffer 
 
