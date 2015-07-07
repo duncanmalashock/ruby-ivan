@@ -33,29 +33,30 @@ _ivan_ isn't a gem...yet. But it will be soon. For now, if you want to try it ou
 Because of hardware dependencies, you probably won't get an application running for now unless you're me or [@osresearch](https://github.com/osresearch). In the meantime for the curious, my implementation talks to a [Teensy 3.1](https://www.pjrc.com/teensy/teensy31.html) running the [teensyv](https://github.com/osresearch/teensyv) program via its serial input. You'll need a USB connection (with its device path correctly specified) to a Teensy 3.1 running the teensyv C code.
 ```
 require_relative 'ivan'
-
 Ivan.set_model_path("#{ File.dirname($0) }/models/")
-sender1 = TeensyVSender.new({ port: "/dev/tty.usbmodem54121" })
-Ivan.load_model(:cube)
+output = TeensyVSender.new({
+  port: "/dev/tty.usbmodem54121"
+})
+Ivan.load_models(:cube, :tetrahedron, :square)
 
-glyph1 = Glyph.new_from_model(:cube)
-buffer1 = glyph1 \
-  .scale([40,40,40]) \
-  .rotate_y(0.3) \
+glyph1 = Glyph.new_from_model(:cube) \
+  .scale([90,90,90])
+
+buffer = glyph1 \
+  .rotate_y(rot) \
+  .rotate_x(rot) \
   .project \
-  .translate_2D([128, 128]) \
-  .instructions
-   
-sender1.send_buffer(buffer1)
+  .to_buffer 
+
+comp = Composition.new(buffer) \
+  .normalize(output.boundary)
+output.send(comp.buffer)
 ```
 
 ### Why Vector Monitors? ###
 Ever seen one? They're awesome. Vector monitors used to be _the_ way to display computer graphics from the 1960s up until the mid-80s, when framebuffer technology advanced to the point where vector display quality was no longer competitive.
 
-But even though they're totally outmoded, vector monitors still have something pixel-based monitors don't: 
-
-1. Infinite resolution. Vector lines are perfectly smooth, like ink on a page.
-2. The brightness of the images on the screen makes drawing and animating even simple shapes exciting.
+But even though they're totally outmoded, vector monitors still have something pixel-based monitors don't. Vector lines are perfectly smooth, like ink on a page, and the brightness of the images on the screen makes even dumb simple shapes look great.
 
 Vector graphics were used in:
 
@@ -64,10 +65,5 @@ Vector graphics were used in:
 * The abstract films of [John Whitney](https://www.google.com/search?q=john+whitney&espv=2&biw=1189&bih=810&source=lnms&tbm=isch&sa=X&ei=M6mRVabKA5agyATQ7a-oAg&ved=0CAcQ_AUoAg&dpr=1)
 * The [Sketchpad](https://www.youtube.com/watch?v=T7dC98PNxyE) system designed in 1963 by user interface and Object-Oriented software pioneer [Ivan Sutherland](https://en.wikipedia.org/wiki/Ivan_Sutherland)
 
-Currently, vector graphics also have relevant applications in [laser shows](https://en.wikipedia.org/wiki/Laser_lighting_display).
-
 ![vector_scope_1](https://cloud.githubusercontent.com/assets/3036676/8416647/1fec54ac-1e75-11e5-8aec-42038337900f.jpg)
 My current setup, using a modified [Vectrex](https://en.wikipedia.org/wiki/Vectrex) console and [@osresearch](https://github.com/osresearch)'s [teensyv](https://github.com/osresearch/teensyv) control circuit.
-
-### License
-MIT
