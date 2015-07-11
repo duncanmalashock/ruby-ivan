@@ -4,5 +4,5 @@ require "codeclimate-test-reporter"
 
 CodeClimate::TestReporter.start
 
-require_relative "../ivan"
+require_relative "../lib/ivan"
 require_relative "fixtures"
