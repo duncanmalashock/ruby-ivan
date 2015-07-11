@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'ivan'
-  s.version     = '0.0.0'
+  s.version     = '0.1.0.pre'
   s.summary     = "ivan"
   s.description = "Creates imagery on analog vector monitors"
   s.authors     = ["Duncan Malashock"]
