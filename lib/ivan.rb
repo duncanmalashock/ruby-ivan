@@ -1,15 +1,15 @@
 require 'yaml'
 
-require_relative 'ivan/point'
-require_relative 'ivan/has_transforms'
-require_relative 'ivan/geometry'
-require_relative 'ivan/glyph'
-require_relative 'ivan/composition'
-require_relative 'ivan/sender'
-require_relative 'ivan/teensyv_sender'
+require_relative 'point'
+require_relative 'has_transforms'
+require_relative 'geometry'
+require_relative 'glyph'
+require_relative 'composition'
+require_relative 'sender'
+require_relative 'teensyv_sender'
 
 module Ivan
-  @model_path = nil
+  @model_path = File.join(File.dirname(File.expand_path(__FILE__)), 'models')
   @default_focal_length = -125.0
   Models = {}
 
