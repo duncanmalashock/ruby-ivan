@@ -4,4 +4,4 @@ rvm:
 script: bundle exec rake test
 addons:
   code_climate:
-    repo_token: 36e8bc0d98a0e24246ab4a14117d171be4e1699cf7f2eb6f21d593d8c7459825
+    repo_token: 5059582f177ecb9cd186cd5f939e2c26b14eacc41363595bf2b627eacad1c596
