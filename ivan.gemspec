@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
     'http://rubygems.org/gems/ivan'
   s.license       = 'MIT'
   s.add_runtime_dependency 'serialport', '~> 1.3'
-  s.add_development_dependency 'bundler', '~> 0'
+  s.add_development_dependency 'bundler', '~> 1'
   s.add_development_dependency 'minitest', '~> 5.7'
   s.add_development_dependency 'guard', '~> 2.12'
   s.add_development_dependency 'guard-minitest', '~> 2.4'
