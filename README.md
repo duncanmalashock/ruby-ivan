@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/duncanmalashock/ivan.svg?branch=master)](https://travis-ci.org/duncanmalashock/ivan)
 [![Code Climate](https://codeclimate.com/github/duncanmalashock/ivan/badges/gpa.svg)](https://codeclimate.com/github/duncanmalashock/ivan)
-[![Test Coverage](https://codeclimate.com/github/duncanmalashock/ivan/badges/coverage.svg)](https://codeclimate.com/github/duncanmalashock/ivan/coverage)
+[![Coverage Status](https://coveralls.io/repos/duncanmalashock/ivan/badge.svg?branch=master&service=github)](https://coveralls.io/github/duncanmalashock/ivan?branch=master)
 
 # ivan
 

@@ -19,4 +19,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'pry', '~> 0.10'
   s.add_development_dependency 'pry-byebug', '~> 3.1'
   s.add_development_dependency 'ruby-prof', '~> 0.15'
+  s.add_development_dependency 'coveralls', '~> 1.0'
 end
