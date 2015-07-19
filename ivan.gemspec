@@ -5,7 +5,7 @@ Gem::Specification.new do |s|
   s.description = "Creates imagery on analog vector monitors"
   s.authors     = ["Duncan Malashock"]
   s.email       = 'duncanmalashock@gmail.com'
-  s.files       = Dir["lib/*", "lib/models/*"]
+  s.files       = `git ls-files`.split("\n")
   s.require_path = 'lib'
   s.homepage    =
     'http://rubygems.org/gems/ivan'
@@ -19,5 +19,4 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'pry', '~> 0.10'
   s.add_development_dependency 'pry-byebug', '~> 3.1'
   s.add_development_dependency 'ruby-prof', '~> 0.15'
-  s.add_development_dependency 'codeclimate-test-reporter', '~> 0.4'
 end
