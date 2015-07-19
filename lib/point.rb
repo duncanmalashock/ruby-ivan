@@ -9,9 +9,9 @@ class Point
   TOP = 8;    # 1000
 
   def initialize (x = 0, y = 0, z = 0)
-    @x = x;
-    @y = y;
-    @z = z;
+    @x = x
+    @y = y
+    @z = z
   end
 
   def screen_safe?(boundary)
@@ -32,35 +32,25 @@ class Point
 
   def outcode(boundary)
     outcode = 0
-
-    if self.x < boundary[:x_min] then
-      outcode |= LEFT
-    end
-    if self.x > boundary[:x_max] then
-      outcode |= RIGHT
-    end
-    if self.y < boundary[:y_min] then
-      outcode |= BOTTOM
-    end
-    if self.y > boundary[:y_max] then
-      outcode |= TOP
-    end
-
+    outcode |= LEFT if self.x < boundary[:x_min]
+    outcode |= RIGHT if self.x > boundary[:x_max]
+    outcode |= BOTTOM if self.y < boundary[:y_min]
+    outcode |= TOP if self.y > boundary[:y_max]
     return outcode
   end
 
   def self.clip_to_boundary(boundary, points)
     accepted = false
 
-    while !accepted do
+    until accepted do
       outcode0 = points[0].outcode(boundary)
       outcode1 = points[1].outcode(boundary)
-      if ( (outcode0 | outcode1) == 0 ) then
+      if outcode0 | outcode1 == 0
         return points
-      elsif (outcode0 & outcode1 != 0) then
+      elsif outcode0 & outcode1 != 0
         return [nil, nil]
       else
-        if (outcode0 != 0) then
+        if outcode0 != 0
           outcode_out = outcode0
         else
           outcode_out = outcode1
@@ -69,33 +59,31 @@ class Point
         y0 = points[0].y
         x1 = points[1].x
         y1 = points[1].y
-        if (outcode_out & TOP != 0) then
+        if outcode_out & TOP != 0
           x = x0 + (x1 - x0) * (boundary[:y_max] - y0) / (y1 - y0)
           y = boundary[:y_max]
-        elsif (outcode_out & BOTTOM != 0) then
+        elsif outcode_out & BOTTOM != 0
           x = x0 + (x1 - x0) * (boundary[:y_min] - y0) / (y1 - y0)
           y = boundary[:y_min]
-        elsif (outcode_out & RIGHT != 0) then
+        elsif outcode_out & RIGHT != 0
           y = y0 + (y1 - y0) * (boundary[:x_max] - x0) / (x1 - x0)
           x = boundary[:x_max]
-        elsif (outcode_out & LEFT != 0) then
+        elsif outcode_out & LEFT != 0
           y = y0 + (y1 - y0) * (boundary[:x_min] - x0) / (x1 - x0)
           x = boundary[:x_min]
         end
 
-        if (outcode_out == outcode0) then
+        if outcode_out == outcode0
           x0 = x
           y0 = y
         else
           x1 = x
           y1 = y
         end
-        points[0] = Point.new(x0,y0)
-        points[1] = Point.new(x1,y1)
+        points[0] = Point.new(x0, y0)
+        points[1] = Point.new(x1, y1)
       end
-
     end
-    
     return points
   end
 
@@ -108,35 +96,35 @@ class Point
   end
 
   def translate(delta)
-    return Point.new( 
+    return Point.new(
       @x + delta[0],
       @y + delta[1],
       @z + delta[2] )
   end
 
   def scale(delta)
-    return Point.new( 
+    return Point.new(
       @x * delta[0],
       @y * delta[1],
       @z * delta[2] )
   end
 
   def rotate_x(theta)
-    return Point.new( 
+    return Point.new(
       @x,
       @y * cos(theta) - @z * sin(theta),
       @y * sin(theta) + @z * cos(theta) )
   end
 
   def rotate_y(theta)
-    return Point.new( 
+    return Point.new(
       @z * sin(theta) + @x * cos(theta),
       @y,
       @z * cos(theta) - @x * sin(theta) )
   end
 
   def rotate_z(theta)
-    return Point.new( 
+    return Point.new(
       @x * cos(theta) - @y * sin(theta),
       @x * sin(theta) + @y * cos(theta),
       @z )
@@ -144,7 +132,7 @@ class Point
 
   def project(x = 0, y = 0, z = Ivan.default_focal_length)
     pov = Point.new(x, y, z)
-    return Point.new( 
+    return Point.new(
       pov.z * (@x - pov.x) / (@z + pov.z) + pov.x,
       pov.z * (@y - pov.y) / (@z + pov.z) + pov.y,
       0 )

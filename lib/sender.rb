@@ -11,7 +11,7 @@ class Sender
   @output = nil
   @boundary = nil
 
-  attr_reader :boundary
+  attr_reader :boundary, :output
 
   def initialize(config_params)
     begin

@@ -111,7 +111,7 @@ describe Point do
 
   describe "after projecting to 2D" do
     it "returns with the correct coordinates" do
-      @projected_point = @a_point.project()
+      @projected_point = @a_point.project
       assert_equal 13.157894736842104, @projected_point.x
       assert_equal 26.31578947368421, @projected_point.y
       assert_equal 0, @projected_point.z

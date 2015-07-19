@@ -9,7 +9,7 @@ class Glyph
   end
 
   def initialize(geometry)
-    if geometry.valid? then
+    if geometry.valid?
       @points = geometry[:points].map do |p|
         Point.new(*p)
       end

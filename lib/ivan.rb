@@ -7,6 +7,7 @@ require_relative 'glyph'
 require_relative 'composition'
 require_relative 'sender'
 require_relative 'teensyv_sender'
+require_relative 'teensyv2_sender'
 
 module Ivan
   @model_path = File.join(File.dirname(File.expand_path(__FILE__)), 'models')
@@ -32,11 +33,9 @@ module Ivan
   def self.load_models(*model_names)
     model_names.each do |model_name|
       model_file = File.read("#{ @model_path }/#{ model_name }.yml")
-      if model_file then
+      if model_file
         geom = YAML.load(model_file)
-        if geom.valid? then
-          Models[model_name] = geom
-        end
+        Models[model_name] = geom if geom.valid?
       else
         return false
       end
@@ -44,15 +43,17 @@ module Ivan
     return true
   end
 
+  def self.model_file(model_file)
+    # code here
+  end
+
   def self.copy_model(source, destination)
-    if Models[source] then
-      Models[destination] = Models[source]
-    end
+    Models[destination] = Models[source] if Models[source]
   end
 
   def self.save_model(model_name)
     yaml_out = YAML.dump(Models[model_name])
-    if yaml_out then
+    if yaml_out
       file_out = File.open("#{ @model_path }/#{model_name}.yml","w")
       file_out << yaml_out
       file_out.close
