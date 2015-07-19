@@ -1,6 +1,7 @@
 language: ruby
 rvm:
 - "2.1.4"
+before_install: gem install bundler -v 1.10.5
 script: bundle exec rake test
 addons:
   code_climate:
