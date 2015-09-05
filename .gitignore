@@ -1,6 +1,4 @@
 Gemfile.lock
 .ruby-version
 .bundle
-coverage/*
-.idea/*
 pkg/*
