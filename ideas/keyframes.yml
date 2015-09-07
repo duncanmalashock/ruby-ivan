@@ -1,0 +1,13 @@
+keyframes:
+-
+  frame_number: 0
+  values:
+  -
+    object_id: 1
+    position: 0 
+-
+  frame_number: 30
+  values:
+  -
+    object_id: 1
+    position: 10
