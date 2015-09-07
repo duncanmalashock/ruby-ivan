@@ -3,3 +3,4 @@ Gemfile.lock
 .bundle
 pkg/*
 bin
+coverage/*
