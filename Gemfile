@@ -1,3 +1,7 @@
 source "http://www.rubygems.org"
 
-gemspec
+gem 'rake'
+gem 'rspec'
+gem 'guard-rspec', require: false
+
+gem 'serialport'
