@@ -1,5 +1,13 @@
 require 'codeclimate-test-reporter'
-CodeClimate::TestReporter.start
+require 'simplecov'
+require 'coveralls'
+
+SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
+  Coveralls::SimpleCov::Formatter,
+  SimpleCov::Formatter::HTMLFormatter,
+  CodeClimate::TestReporter::Formatter
+]
+SimpleCov.start
 
 require 'ivan'
 require 'mocks'

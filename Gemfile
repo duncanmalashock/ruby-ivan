@@ -5,6 +5,7 @@ gem 'rake'
 gem 'rspec'
 gem 'guard-rspec'
 gem 'simplecov'
+gem 'coveralls'
 gem "codeclimate-test-reporter"
 
 gem 'serialport'
