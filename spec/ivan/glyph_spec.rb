@@ -2,11 +2,12 @@ require 'spec_helper'
 
 module Ivan
   describe Glyph do
+    let (:stub_geom) { [1, 2, 3, 4] }
     context 'when initialized with only geometry' do
-      let(:cube) { Glyph.new(geometry: [1, 2, 3, 4]) }
+      let(:cube) { Glyph.new(geometry: stub_geom) }
       describe '#initialize' do
         it 'sets geometry attr correctly' do
-          expect(cube.geometry).to eq([1, 2, 3, 4])
+          expect(cube.geometry).to eq(stub_geom)
         end
         it 'has a default rotation value' do
           expect(cube.rotation).to eq([0, 0, 0])
@@ -14,13 +15,13 @@ module Ivan
       end
       describe '#render' do
         it 'returns data for drawing' do
-          expect(cube.render).to eq([1, 2, 3, 4])
+          expect(cube.render).to eq(stub_geom)
         end
       end
     end
     context 'when initialized with a rotation value' do
       let(:cube) { Glyph.new(
-        geometry: [1, 2, 3, 4], 
+        geometry: stub_geom, 
         rotation: [10, 20, 30]) }
       describe '#initialize' do
         it 'sets rotation attr correctly' do
@@ -30,7 +31,7 @@ module Ivan
     end
     context 'when initialized with a single scale value' do
       let(:cube) { Glyph.new(
-        geometry: [1, 2, 3, 4], 
+        geometry: stub_geom, 
         scale: 10) }
       describe '#initialize' do
         it 'sets scale attr correctly' do
@@ -40,7 +41,7 @@ module Ivan
     end
     context 'when initialized with a tuple scale value' do
       let(:cube) { Glyph.new(
-        geometry: [1, 2, 3, 4], 
+        geometry: stub_geom, 
         scale: [10, 10, 10]) }
       describe '#initialize' do
         it 'sets scale attr correctly' do
