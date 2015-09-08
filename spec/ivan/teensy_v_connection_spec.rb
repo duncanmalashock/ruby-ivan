@@ -14,7 +14,7 @@ module Ivan
     describe '#draw' do
       context 'when called with instructions' do
         it 'returns the number of instructions drawn' do
-          expect(teensyv.draw([1,2,3])).to eq(3)
+          expect(teensyv.draw([1, 2, 3])).to eq(3)
         end
       end
     end
