@@ -12,7 +12,7 @@ module Ivan
     end
 
     def draw(instructions)
-      return instructions.nil? ? nil : instructions.length
+      instructions.length
     end
   end
 end

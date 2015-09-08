@@ -12,11 +12,6 @@ module Ivan
     end
 
     describe "#draw" do
-      context "when called with nil" do
-        it "returns nil" do
-          expect(teensyv.draw(nil)).to eq(nil)
-        end
-      end
       context "when called with instructions" do
         it "returns the number of instructions drawn" do
           expect(teensyv.draw([1,2,3])).to eq(3)
