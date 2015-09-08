@@ -12,10 +12,23 @@ module Ivan
         it 'has a default rotation value' do
           expect(cube.rotation).to eq([0, 0, 0])
         end
+        it 'has a default position value' do
+          expect(cube.position).to eq([0, 0, 0])
+        end
       end
       describe '#render' do
         it 'returns data for drawing' do
           expect(cube.render).to eq(stub_geom)
+        end
+      end
+    end
+    context 'when initialized with a position value' do
+      let(:cube) { Glyph.new(
+        geometry: stub_geom, 
+        position: [30, 20, 10]) }
+      describe '#initialize' do
+        it 'sets position attr correctly' do
+          expect(cube.position).to eq([30, 20, 10])
         end
       end
     end
