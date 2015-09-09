@@ -18,7 +18,10 @@ module Ivan
     end
 
     def render
-      return @geometry.scale(@scale)
+      return @geometry.render(
+        position: @position,
+        rotation: @rotation,
+        scale: @scale)
     end
   end
 end
