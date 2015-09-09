@@ -6,7 +6,7 @@ module Ivan
     attr_reader :connection
 
     def initialize(device_path:, connection_type: TeensyVConnection)
-      if (valid_device_path?(device_path))
+      if valid_device_path?(device_path)
         @connection = connection_type.new(device_path: device_path)
       else
         return nil
@@ -20,7 +20,7 @@ module Ivan
     private
 
     def valid_device_path?(device_path)
-      return !device_path.empty?
+      !device_path.empty?
     end
   end
 end

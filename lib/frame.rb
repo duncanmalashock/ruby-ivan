@@ -6,7 +6,7 @@ module Ivan
     attr_reader :instructions
 
     def initialize
-      self.clear
+      clear
     end
 
     def render(object_to_render)
