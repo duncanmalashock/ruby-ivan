@@ -12,11 +12,3 @@ cube_1 = Ivan::Glyph.new(
 output.clear
 output.render cube_1
 puts output.send_to_display
-
-# TO DO:
-# Implement a Glyph
-# - with scale, rotation, position
-# - that delegates transforms to Points
-# Implement a Point
-# Implement a Geometry
-# Implement a Camera
