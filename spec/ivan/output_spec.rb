@@ -2,9 +2,9 @@ require 'spec_helper'
 
 module Ivan
   describe Output do
-    let (:display) { double(send_instructions: true) }
-    let (:output) { Output.new(frame: Frame.new, display: display) }
-    let (:object_1) { double }
+    let(:display) { double(send_instructions: true) }
+    let(:output) { Output.new(frame: Frame.new, display: display) }
+    let(:object_1) { double }
 
     describe '#render' do
       it 'sends :render to the frame object' do

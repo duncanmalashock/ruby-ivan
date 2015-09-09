@@ -2,7 +2,7 @@ require 'spec_helper'
 
 module Ivan
   describe Glyph do
-    let (:stub_geom) { double('geometry_mock') }
+    let(:stub_geom) { double('geometry_mock') }
     context 'when initialized with only geometry' do
       let(:cube) { Glyph.new(geometry: stub_geom) }
       describe '#initialize' do

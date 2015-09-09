@@ -2,9 +2,9 @@ require 'spec_helper'
 
 module Ivan
   describe Frame do
-    let (:frame) { Frame.new }
-    let (:object_1) { double(render: [1, 2, 3]) }
-    let (:object_2) { double(render: [3, 4, 5, 6]) }
+    let(:frame) { Frame.new }
+    let(:object_1) { double(render: [1, 2, 3]) }
+    let(:object_2) { double(render: [3, 4, 5, 6]) }
 
     describe '#initialize' do
       it 'has no instructions' do
