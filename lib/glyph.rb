@@ -1,6 +1,6 @@
 module Ivan
+  # A geometric object that can be rendered
   class Glyph
-    # A geometric object that can be rendered
     attr_reader :geometry, :position, :rotation, :scale
 
     def initialize(geometry:, position:[0, 0, 0],

@@ -1,8 +1,8 @@
 require 'serialport'
 
 module Ivan
+  # Adapter from Display to teensyv hardware
   class TeensyVConnection
-    # Adapter from Display to teensyv hardware
     attr_reader :serial_port
 
     def initialize(device_path:, serial_port_class: SerialPort)
