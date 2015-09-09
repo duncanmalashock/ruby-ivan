@@ -16,6 +16,7 @@ puts output.send_to_display
 # TO DO:
 # Implement a Glyph
 # - with scale, rotation, position
-# Implement a Geometry
+# - that delegates transforms to Points
 # Implement a Point
+# Implement a Geometry
 # Implement a Camera
