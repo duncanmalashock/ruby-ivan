@@ -1,8 +1,6 @@
-# Frame
-# Maintains a list of drawing instructions to be written to the display
-
 module Ivan
   class Frame
+  # Maintains a list of drawing instructions to be written to the display
     attr_reader :instructions
 
     def initialize

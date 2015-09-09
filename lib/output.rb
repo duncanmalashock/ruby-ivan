@@ -1,8 +1,6 @@
-# Output
-# Hides the frame buffer and display device
-
 module Ivan
   class Output
+  # Hides the frame buffer and display device
     attr_reader :frame, :display
 
     def initialize(frame: Frame.new, display:)

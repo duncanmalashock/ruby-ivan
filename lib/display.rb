@@ -1,8 +1,6 @@
-# Display
-# Creates a connection to a display device to which instructions can be sent
-
 module Ivan
   class Display
+  # Creates a connection to a display device to which instructions can be sent
     attr_reader :connection
 
     def initialize(device_path:, connection_type: TeensyVConnection)
