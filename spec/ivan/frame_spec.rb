@@ -26,7 +26,7 @@ module Ivan
         end
       end
       context 'when called twice with two renderable objects' do
-        it 'returns the sum of the instructions' do
+        it 'returns the total of the instructions' do
           frame.render(object_1)
           result = frame.render(object_2)
           expect(result).to eq(object_1.render + object_2.render)
