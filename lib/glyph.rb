@@ -18,7 +18,7 @@ module Ivan
     end
 
     def render
-      return @geometry
+      return @geometry.scale(@scale)
     end
   end
 end
