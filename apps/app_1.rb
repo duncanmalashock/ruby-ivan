@@ -6,7 +6,7 @@ display = Ivan::Display.new(device_path: '/dev/tty.usbmodem54121',
 output = Ivan::Output.new(display: display)
 
 cube_1 = Ivan::Glyph.new(
-  geometry: [1, 2, 3, 4, 5, 6],
+  model: Ivan::Model.new([1, 2, 3, 4, 5, 6]),
   rotation: [0, 10, 0])
 
 output.clear
