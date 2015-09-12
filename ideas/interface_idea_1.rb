@@ -10,7 +10,7 @@ camera_1 = Ivan::Camera.new(
   rotation: [0, 10, 0],
   focal_length: 300)
 cube_1 = Ivan::Glyph.new(
-  geometry: Ivan::Geometry.from_file("cube.yml"),
+  model: Ivan::Model.from_file("cube.yml"),
   scale: 20,
   rotation: [4,68,0])
 

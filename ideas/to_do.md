@@ -6,6 +6,6 @@ Implement a Glyph
 
 Implement a Point
 
-Implement a Geometry
+Implement a Model
 
 Implement a Camera

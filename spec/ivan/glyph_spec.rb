@@ -2,12 +2,12 @@ require 'spec_helper'
 
 module Ivan
   describe Glyph do
-    let(:stub_geom) { double('geometry_mock') }
-    context 'when initialized with only geometry' do
-      let(:cube) { Glyph.new(geometry: stub_geom) }
+    let(:stub_model) { double('model_mock') }
+    context 'when initialized with only model' do
+      let(:cube) { Glyph.new(model: stub_model) }
       describe '#initialize' do
-        it 'sets geometry attr correctly' do
-          expect(cube.geometry).to eq(stub_geom)
+        it 'sets model attr correctly' do
+          expect(cube.model).to eq(stub_model)
         end
         it 'has a default rotation value' do
           expect(cube.rotation).to eq([0, 0, 0])
@@ -17,15 +17,15 @@ module Ivan
         end
       end
       describe '#render' do
-        it 'calls #render on its geometry attr' do
-          expect(cube.geometry).to receive(:render)
+        it 'calls #points on its model attr' do
+          expect(cube.model).to receive(:points)
           cube.render
         end
       end
     end
     context 'when initialized with a position value' do
       let(:cube) { Glyph.new(
-        geometry: stub_geom, 
+        model: stub_model, 
         position: [30, 20, 10]) }
       describe '#initialize' do
         it 'sets position attr correctly' do
@@ -35,7 +35,7 @@ module Ivan
     end
     context 'when initialized with a rotation value' do
       let(:cube) { Glyph.new(
-        geometry: stub_geom, 
+        model: stub_model, 
         rotation: [10, 20, 30]) }
       describe '#initialize' do
         it 'sets rotation attr correctly' do
@@ -45,7 +45,7 @@ module Ivan
     end
     context 'when initialized with a single scale value' do
       let(:cube) { Glyph.new(
-        geometry: stub_geom, 
+        model: stub_model, 
         scale: 10) }
       describe '#initialize' do
         it 'sets scale attr correctly' do
@@ -55,7 +55,7 @@ module Ivan
     end
     context 'when initialized with a tuple scale value' do
       let(:cube) { Glyph.new(
-        geometry: stub_geom, 
+        model: stub_model, 
         scale: [10, 10, 10]) }
       describe '#initialize' do
         it 'sets scale attr correctly' do

@@ -1,17 +1,17 @@
 require 'spec_helper'
 
 module Ivan
-  describe Geometry do
+  describe Model do
     let(:point_collection_mock) { [1, 2, 3] }
-    let(:pyramid) { Geometry.new(point_collection_mock) }
+    let(:pyramid) { Model.new(point_collection_mock) }
     describe '#initialize' do
       it 'assigns its points attr' do
         expect(pyramid.points).to eq(point_collection_mock)
       end
     end
-    describe '#render' do
-      it 'renders the points attr' do
-        expect(pyramid.render).to eq(pyramid.points)
+    describe '#points' do
+      it 'returns the points attr' do
+        expect(pyramid.points).not_to be(nil)
       end
     end
   end
