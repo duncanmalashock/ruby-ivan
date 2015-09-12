@@ -1,7 +1,8 @@
 require_relative '../spec/mocks'
 require_relative '../lib/ivan'
 
-display = Ivan::Display.new(device_path: '/dev/tty.usbmodem54121', 
+display = Ivan::Display.new(
+  device_path: '/dev/tty.usbmodem54121',
   connection_type: ConnectionTypeMock)
 output = Ivan::Output.new(display: display)
 

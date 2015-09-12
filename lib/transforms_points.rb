@@ -1,7 +1,7 @@
 module Ivan
+  # Utilities for performing geometric transformations on
+  # a Point passed in and returning a transformed Point as output
   module TransformsPoints
-    # Utilities for performing geometric transformations on
-    # a Point passed in and returning a transformed Point as output
     def self.scale(point:, scale_amount:)
       Point.new(
         x: point.x * scale_amount,
