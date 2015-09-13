@@ -7,7 +7,11 @@ display = Ivan::Display.new(
 output = Ivan::Output.new(display: display)
 
 cube_1 = Ivan::Glyph.new(
-  model: Ivan::Model.new([1, 2, 3, 4, 5, 6]),
+  model: Ivan::Model.new([
+    Ivan::Point.new(x: 2, y: 5, z: 0.3)
+  ]),
+  position: [2, 2, 2],
+  scale: 2.0,
   rotation: [0, 10, 0])
 
 output.clear

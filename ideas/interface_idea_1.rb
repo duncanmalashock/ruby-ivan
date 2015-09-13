@@ -24,7 +24,7 @@ output.send_to_display
 
 display = Ivan::Display.new(device_path: '/dev/tty.usbmodem54121')
 output = Ivan::Output.new(display)
-a = Animation.new(file: "cube_bounce.yml")
+a = Ivan::Animation.new(file: "cube_bounce.yml")
 
 output.clear
 output.render(a.frame(34))
@@ -35,6 +35,6 @@ output.send_to_display
 
 display = Ivan::Display.new(device_path: '/dev/tty.usbmodem54121')
 output = Ivan::Output.new(display)
-a = Animation.new(file: "cube_bounce.yml")
+a = Ivan::Animation.new(file: "cube_bounce.yml")
 
 output.render_and_send(a.frame(34))
