@@ -8,7 +8,7 @@ module Ivan
       it 'returns a point with scaled x, y, and z values' do
         result = TransformsPoints.scale(
           point: a_point,
-          scale_amount: 10)
+          scale_amount: [10, 10, 10])
         expect(result.x).to eq(10)
         expect(result.y).to eq(20)
         expect(result.z).to eq(30)

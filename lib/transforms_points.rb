@@ -4,9 +4,9 @@ module Ivan
   module TransformsPoints
     def self.scale(point:, scale_amount:)
       Point.new(
-        x: point.x * scale_amount,
-        y: point.y * scale_amount,
-        z: point.z * scale_amount
+        x: point.x * scale_amount[0],
+        y: point.y * scale_amount[1],
+        z: point.z * scale_amount[2]
       )
     end
 

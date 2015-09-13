@@ -2,7 +2,7 @@ require 'spec_helper'
 
 module Ivan
   describe Glyph do
-    let(:stub_model) { double('model_mock') }
+    let(:stub_model) { double('model_mock', points: [1,2,3]) }
     context 'when initialized with only model' do
       let(:cube) { Glyph.new(model: stub_model) }
       describe '#initialize' do
@@ -19,6 +19,8 @@ module Ivan
       describe '#render' do
         it 'calls #points on its model attr' do
           expect(cube.model).to receive(:points)
+          expect(TransformsPoints).to receive(:scale).at_least(:once)
+          expect(TransformsPoints).to receive(:translate).at_least(:once)
           cube.render
         end
       end
