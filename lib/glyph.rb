@@ -16,7 +16,15 @@ module Ivan
     end
 
     def render
-      @model.points
+      output = @model.points
+      output = output.map do |p|
+        TransformsPoints.translate(
+          point: TransformsPoints.scale(
+            point: p,
+            scale_amount: @scale),
+          translate_amount: @position)
+      end
+
     end
   end
 end
