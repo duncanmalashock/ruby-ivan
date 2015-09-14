@@ -23,6 +23,10 @@ module Ivan
       end
     end
 
+    describe '#render_and_send' do
+      it 'calls #clear, #render and #send_to_display in order'
+    end
+
     describe '#clear' do
       it 'clears the frame' do
         expect(output.frame).to receive(:clear)

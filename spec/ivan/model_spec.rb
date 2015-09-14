@@ -14,5 +14,11 @@ module Ivan
         expect(pyramid.points).not_to be(nil)
       end
     end
+    describe '#new_from_file' do
+      it 'loads valid model data from a YAML file'
+    end
+    describe '#save_to_file' do
+      it 'writes serialized YAML to the path'
+    end
   end
 end

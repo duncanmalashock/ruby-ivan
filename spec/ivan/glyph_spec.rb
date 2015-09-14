@@ -25,6 +25,9 @@ module Ivan
         end
       end
     end
+    describe '#render' do
+      it 'takes a camera argument and renders from that point of view'
+    end
     context 'when initialized with a position value' do
       let(:cube) { Glyph.new(
         model: stub_model, 
@@ -65,5 +68,8 @@ module Ivan
         end
       end
     end
+    it 'has children'
+    it 'can add children'
+    it 'delegates render calls and passes transformation info to its children'
   end
 end

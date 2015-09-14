@@ -2,6 +2,9 @@ require 'spec_helper'
 
 module Ivan
   describe Display do
+
+    it 'has a boundary'
+
     describe '#initialize' do
       context 'when given a valid device path' do
         let(:display) { Display.new(device_path: 'valid_path',
@@ -31,6 +34,8 @@ module Ivan
         result = display.send_instructions(['some instructions!'])
         expect(result).to be(1)
       end
+      it 'adjusts scale of points drawn to fit its boundary'
+      it 'clips lines outside its boundary'
     end
   end
 end

@@ -25,5 +25,9 @@ module Ivan
         expect(result.z).to eq(13)
       end
     end
+
+    describe '#rotate' do
+      it 'rotates on an axis'
+    end
   end
 end
