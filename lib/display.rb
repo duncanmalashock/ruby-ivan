@@ -3,7 +3,7 @@ module Ivan
   class Display
     attr_reader :connection
 
-    def initialize(device_path:, connection_type: TeensyVConnection)
+    def initialize(device_path:, connection_type: DeviceConnection)
       if valid_device_path?(device_path)
         @connection = connection_type.new(device_path: device_path)
       else

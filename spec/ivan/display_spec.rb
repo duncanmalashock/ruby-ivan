@@ -5,7 +5,7 @@ module Ivan
     describe '#initialize' do
       context 'when given a valid device path' do
         let(:display) { Display.new(device_path: 'valid_path',
-          connection_type: ConnectionTypeMock) }
+          connection_type: ConnectionMock) }
         it 'creates a connection to a device' do
           expect(display.connection).to be_truthy
         end
@@ -13,7 +13,7 @@ module Ivan
 
       context 'when given an invalid device path' do
         let(:display) { Display.new(device_path: '',
-          connection_type: ConnectionTypeMock) }
+          connection_type: ConnectionMock) }
         it 'has a nil connection attribute' do
           expect(display.connection).to be nil
         end
@@ -22,7 +22,7 @@ module Ivan
 
     describe '#send_instructions' do
       let(:display) { Display.new(device_path: 'valid_path',
-        connection_type: ConnectionTypeMock) }
+        connection_type: ConnectionMock) }
       it 'sends instructions to the device' do
         expect(display.connection).to receive(:draw)
         result = display.send_instructions(['some instructions!'])

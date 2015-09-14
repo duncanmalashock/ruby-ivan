@@ -1,4 +1,4 @@
-class ConnectionTypeMock
+class ConnectionMock
   def initialize(device_path:)
   end
   def draw(instructions)

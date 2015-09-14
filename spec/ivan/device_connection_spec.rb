@@ -1,8 +1,8 @@
 require 'spec_helper'
 
 module Ivan
-  describe TeensyVConnection do
-    let(:teensyv) { TeensyVConnection.new(device_path: 'valid_path',
+  describe DeviceConnection do
+    let(:teensyv) { DeviceConnection.new(device_path: 'valid_path',
       serial_port_class: SerialPortMock) }
     describe '#initialize' do
       it 'assigns a :serial_port attr' do
@@ -16,6 +16,7 @@ module Ivan
         it 'returns the number of instructions drawn' do
           expect(teensyv.draw([1, 2, 3])).to eq(3)
         end
+        it 'actually sends the data over the line'
       end
     end
   end
