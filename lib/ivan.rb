@@ -7,6 +7,7 @@ require_relative 'model'
 require_relative 'point'
 require_relative 'transforms_points'
 
+# Library for creating & manipulating vector graphics
 module Ivan
-  ConnectionMethod = :teensyv_1
+  CONNECTION_METHOD = :teensyv_1
 end

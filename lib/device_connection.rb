@@ -10,7 +10,7 @@ module Ivan
     end
 
     def draw(instructions)
-      self.send(ConnectionMethod, instructions)
+      send(CONNECTION_METHOD, instructions)
       instructions.length
     end
 
