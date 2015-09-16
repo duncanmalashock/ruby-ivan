@@ -12,7 +12,9 @@ module Ivan
     def self.new_from_file(filename)
       loaded_model = YAML.load_file(filename)
       loaded_points = loaded_model['points']
-      points = loaded_points.map { |p| Point.new(x: p['x'], y: p['y'], z: p['z']) }
+      points = loaded_points.map do |p|
+        Point.new(x: p['x'], y: p['y'], z: p['z'])
+      end
       Model.new(points)
     end
   end

@@ -5,6 +5,6 @@ display = Ivan::Display.new(
 output = Ivan::Output.new(display: display)
 
 cube_1 = Ivan::Glyph.new(
-  model: Ivan::Model.new_from_file("apps/models/cube.yml"))
+  model: Ivan::Model.new_from_file('apps/models/cube.yml'))
 
 output.render_and_send cube_1
