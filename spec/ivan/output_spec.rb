@@ -24,7 +24,12 @@ module Ivan
     end
 
     describe '#render_and_send' do
-      it 'calls #clear, #render and #send_to_display in order'
+      it 'calls #clear, #render and #send_to_display in order' do
+        expect(output).to receive(:clear)
+        expect(output).to receive(:render)
+        expect(output).to receive(:send_to_display)
+        output.render_and_send(nil)
+      end
     end
 
     describe '#clear' do

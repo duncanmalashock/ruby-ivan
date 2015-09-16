@@ -1,5 +1,5 @@
 module Ivan
-  # Hides the frame buffer and display device
+  # Interface to the frame buffer and display device
   class Output
     attr_reader :frame, :display
 
@@ -18,6 +18,12 @@ module Ivan
 
     def clear
       @frame.clear
+    end
+
+    def render_and_send(object)
+      clear
+      render(object)
+      send_to_display
     end
   end
 end
