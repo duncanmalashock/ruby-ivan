@@ -1,3 +1,5 @@
+require 'yaml'
+
 module Ivan
   # Collection of Points in a fixed spatial relationship
   class Model
@@ -5,6 +7,13 @@ module Ivan
 
     def initialize(points)
       @points = points
+    end
+
+    def self.new_from_file(filename)
+      loaded_model = YAML.load_file(filename)
+      loaded_points = loaded_model['points']
+      points = loaded_points.map { |p| Point.new(x: p['x'], y: p['y'], z: p['z']) }
+      Model.new(points)
     end
   end
 end

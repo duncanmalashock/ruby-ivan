@@ -15,7 +15,10 @@ module Ivan
       end
     end
     describe '#new_from_file' do
-      it 'loads valid model data from a YAML file'
+      it 'loads valid model data from a YAML file' do
+        new_model = Model.new_from_file('spec/fixtures/simple_model.yml')
+        expect(new_model.points).not_to be(nil)
+      end
     end
     describe '#save_to_file' do
       it 'writes serialized YAML to the path'
