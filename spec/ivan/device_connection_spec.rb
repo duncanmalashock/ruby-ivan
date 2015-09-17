@@ -16,7 +16,6 @@ module Ivan
         it 'returns the number of instructions drawn' do
           expect(teensyv.draw([1, 2, 3])).to eq(3)
         end
-        it 'actually sends the data over the line'
       end
     end
   end
