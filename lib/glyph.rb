@@ -15,6 +15,14 @@ module Ivan
       end
     end
 
+    def scale=(scale)
+      if !scale.respond_to? :length
+        @scale = [scale, scale, scale]
+      else
+        @scale = scale
+      end
+    end
+
     def render
       output = @model.points
       output.map do |p|
