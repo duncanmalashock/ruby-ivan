@@ -28,6 +28,7 @@ module Ivan
     describe '#render' do
       it 'takes a camera argument and renders from that point of view'
     end
+
     context 'when initialized with a position value' do
       let(:cube) { Glyph.new(
         model: stub_model, 
@@ -68,6 +69,23 @@ module Ivan
         end
       end
     end
+
+    describe '#scale=' do
+      let(:cube) { Glyph.new(model: stub_model) }
+      context 'when called with a single value' do
+        it 'sets scale attr correctly' do
+          cube.scale = 20
+          expect(cube.scale).to eq([20, 20, 20])
+        end
+      end
+      context 'when called with a tuple value' do
+        it 'sets scale attr correctly' do
+          cube.scale = [10, 20, 30]
+          expect(cube.scale).to eq([10, 20, 30])
+        end
+      end
+    end
+
     it 'has children'
     it 'can add children'
     it 'delegates render calls and passes transformation info to its children'
