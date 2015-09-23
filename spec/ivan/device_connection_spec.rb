@@ -13,8 +13,9 @@ module Ivan
 
     describe '#draw' do
       context 'when called with instructions' do
-        it 'returns the number of instructions drawn' do
-          expect(teensyv.draw([1, 2, 3])).to eq(3)
+        let(:a_point) { Point.new(x: 2, y: 4, z: 5) }
+        it 'returns the number of points drawn' do
+          expect(teensyv.draw([a_point,a_point])).to eq(2)
         end
       end
     end
