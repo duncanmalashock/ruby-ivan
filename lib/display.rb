@@ -26,7 +26,12 @@ module Ivan
     end
 
     def send_instructions(instructions)
-      connection.draw(instructions)
+      converted_instructions = instructions.map do |i|
+        Point.new(
+          x: ((i.x + 100) * (255.0 / 200.0)).round,
+          y: ((i.y + 100) * (255.0 / 200.0)).round)
+      end
+      connection.draw(converted_instructions)
     end
 
     private
