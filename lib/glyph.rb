@@ -1,7 +1,7 @@
 module Ivan
   # A geometric object that can be rendered
   class Glyph
-    attr_reader :model, :position, :rotation, :scale
+    attr_reader :model, :position, :rotation, :scale, :children
 
     def initialize(model:, position:[0, 0, 0],
       rotation:[0, 0, 0], scale: 1.0)
@@ -13,6 +13,7 @@ module Ivan
       else
         @scale = scale
       end
+      @children = []
     end
 
     def scale=(scale)

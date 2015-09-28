@@ -86,7 +86,12 @@ module Ivan
       end
     end
 
-    it 'has children'
+    describe '#children' do
+      let(:cube) { Glyph.new(model: stub_model) }
+      it 'is not nil' do
+        expect(cube.children).not_to be(nil)
+      end
+    end
     it 'can add children'
     it 'delegates render calls and passes transformation info to its children'
   end
