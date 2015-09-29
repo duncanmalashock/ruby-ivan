@@ -9,17 +9,21 @@ module Ivan
       ]) }
     context 'when initialized with only model' do
       let(:cube) { Glyph.new(model: stub_model) }
+      
       describe '#initialize' do
         it 'sets model attr correctly' do
           expect(cube.model).to eq(stub_model)
         end
+        
         it 'has a default rotation value' do
           expect(cube.rotation).to eq([0, 0, 0])
         end
+        
         it 'has a default position value' do
           expect(cube.position).to eq([0, 0, 0])
         end
       end
+
       describe '#render' do
         it 'calls #points on its model attr' do
           expect(cube.model).to receive(:points)
@@ -33,14 +37,17 @@ module Ivan
           cube.add_child(child_cube)
           result = cube.render
           expect(result.length).to eq(6)
+        end
+
+        it 'takes a camera argument and renders from that point of view'
       end
-      it 'takes a camera argument and renders from that point of view'
     end
 
     context 'when initialized with a position value' do
       let(:cube) { Glyph.new(
         model: stub_model, 
         position: [30, 20, 10]) }
+      
       describe '#initialize' do
         it 'sets position attr correctly' do
           expect(cube.position).to eq([30, 20, 10])
@@ -51,6 +58,7 @@ module Ivan
       let(:cube) { Glyph.new(
         model: stub_model, 
         rotation: [10, 20, 30]) }
+      
       describe '#initialize' do
         it 'sets rotation attr correctly' do
           expect(cube.rotation).to eq([10, 20, 30])
@@ -61,6 +69,7 @@ module Ivan
       let(:cube) { Glyph.new(
         model: stub_model, 
         scale: 10) }
+      
       describe '#initialize' do
         it 'sets scale attr correctly' do
           expect(cube.scale).to eq([10, 10, 10])
@@ -71,6 +80,7 @@ module Ivan
       let(:cube) { Glyph.new(
         model: stub_model, 
         scale: [10, 10, 10]) }
+      
       describe '#initialize' do
         it 'sets scale attr correctly' do
           expect(cube.scale).to eq([10, 10, 10])
@@ -86,6 +96,7 @@ module Ivan
           expect(cube.scale).to eq([20, 20, 20])
         end
       end
+      
       context 'when called with a tuple value' do
         it 'sets scale attr correctly' do
           cube.scale = [10, 20, 30]
