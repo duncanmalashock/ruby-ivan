@@ -16,6 +16,10 @@ module Ivan
       @children = []
     end
 
+    def add_child(child)
+      @children.push(child)
+    end
+
     def scale=(scale)
       if !scale.respond_to? :length
         @scale = [scale, scale, scale]
@@ -25,8 +29,17 @@ module Ivan
     end
 
     def render
-      output = @model.points
-      output.map do |p|
+      my_points = @model.points
+      @children.each do |c|
+        my_points << c.render
+      end
+      return do_transforms(my_points.flatten)
+    end
+
+    protected
+
+    def do_transforms(points)
+      points.map do |p|
         TransformsPoints.translate(
           point: TransformsPoints.scale(
             point: p,

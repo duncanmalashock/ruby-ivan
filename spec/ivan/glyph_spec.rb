@@ -2,7 +2,11 @@ require 'spec_helper'
 
 module Ivan
   describe Glyph do
-    let(:stub_model) { double('model_mock', points: [1,2,3]) }
+    let(:stub_model) { double('model_mock', points: [
+        Point.new(x: -100, y: -100, z: 0),
+        Point.new(x: 100, y: 100, z: 0),
+        Point.new(x: -100, y: -100, z: 0)
+      ]) }
     context 'when initialized with only model' do
       let(:cube) { Glyph.new(model: stub_model) }
       describe '#initialize' do
@@ -23,9 +27,13 @@ module Ivan
           expect(TransformsPoints).to receive(:translate).at_least(:once)
           cube.render
         end
+
+        let(:child_cube) { Glyph.new(model: stub_model) }
+        it 'collects its children glyphs at render time' do
+          cube.add_child(child_cube)
+          result = cube.render
+          expect(result.length).to eq(6)
       end
-    end
-    describe '#render' do
       it 'takes a camera argument and renders from that point of view'
     end
 
@@ -92,7 +100,15 @@ module Ivan
         expect(cube.children).not_to be(nil)
       end
     end
-    it 'can add children'
-    it 'delegates render calls and passes transformation info to its children'
+    
+    describe '#add_child' do
+      let(:cube) { Glyph.new(model: stub_model) }
+      let(:child_cube) { Glyph.new(model: stub_model) }
+      it 'adds child glyphs' do
+        expect(cube.children.length).to eq(0)
+        cube.add_child(child_cube)
+        expect(cube.children.length).to eq(1)
+      end
+    end
   end
 end
