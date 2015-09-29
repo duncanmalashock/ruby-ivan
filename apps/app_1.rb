@@ -6,12 +6,12 @@ output = Ivan::Output.new(display: display)
 
 cube_1 = Ivan::Glyph.new(
   model: Ivan::Model.new_from_file('apps/models/cube.yml'),
-  scale: 0.25)
+  scale: 1.0)
 
 x = 0
 while (true) do
   x += 0.01
-  cube_1.scale = Math.sin(x) * 0.4 + 0.5
+  cube_1.scale = Math.sin(x)
   output.render_and_send cube_1
   sleep 0.01
 end
