@@ -1,6 +1,6 @@
 module Ivan
-  # Output format for teensyv version 1
-  class Teensyv1Output
+  # Protocol for sending instructions over serial
+  class TeensyV1SerialProtocol
     attr_reader :serial_port
 
     def initialize(serial_port)

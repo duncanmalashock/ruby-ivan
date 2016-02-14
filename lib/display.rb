@@ -25,6 +25,7 @@ module Ivan
       end
     end
 
+    # FIXME: this should be #normalize and #send_instructions
     def send_instructions(instructions)
       converted_instructions = instructions.map do |i|
         Point.new(
