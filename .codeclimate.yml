@@ -10,6 +10,7 @@ ratings:
   paths:
   - lib/**
 exclude_paths:
+- apps/*
 - spec/**/*
 - ideas/**/*
 - examples/**/*
