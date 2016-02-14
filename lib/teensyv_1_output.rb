@@ -14,6 +14,8 @@ module Ivan
       end
     end
 
+    private
+
     def transmit_instruction_length(length)
       high_byte = (length >> 8) & 0xff
       low_byte = length & 0xff
