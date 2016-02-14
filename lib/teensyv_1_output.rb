@@ -1,5 +1,5 @@
 module Ivan
-  # Output method for teensyv version 1
+  # Output format for teensyv version 1
   class Teensyv1Output
     attr_reader :serial_port
 
