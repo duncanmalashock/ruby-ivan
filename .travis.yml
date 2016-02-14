@@ -1,7 +1,7 @@
 language: ruby
 rvm:
 - "2.3.0"
-before_install: gem install bundler -v 1.10.5
+before_install: gem install bundler
 script: rspec ./spec/ivan/*_spec.rb
 addons:
   code_climate:
