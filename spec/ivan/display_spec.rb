@@ -29,7 +29,7 @@ module Ivan
 
     describe '#send_instructions' do
       it 'sends instructions to the device' do
-        expect(display.connection).to receive(:draw)
+        expect(display.connection).to receive(:transmit_to_device)
         result = display.send_instructions([Point.new(x: -100, y: -100, z: 0)])
       end
       it 'returns the number of instructions drawn' do
@@ -43,7 +43,7 @@ module Ivan
         ]
       end
       it 'adjusts scale of points drawn to fit its output boundary' do
-        expect(display.connection).to receive(:draw) do |ins|
+        expect(display.connection).to receive(:transmit_to_device) do |ins|
           expect(ins[0].x).to eq(0)
           expect(ins[0].y).to eq(0)
           expect(ins[1].x).to eq(255)

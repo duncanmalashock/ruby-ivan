@@ -1,7 +1,7 @@
 class ConnectionMock
   def initialize(device_path:)
   end
-  def draw(instructions)
+  def transmit_to_device(instructions)
     return instructions.length
   end
 end

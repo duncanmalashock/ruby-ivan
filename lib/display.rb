@@ -1,5 +1,5 @@
 module Ivan
-  # Creates a connection to a display device to which instructions can be sent
+  # Normalizes drawing instructions for a display device
   class Display
     attr_reader :connection, :input_boundary, :output_boundary
 
@@ -31,7 +31,7 @@ module Ivan
           x: ((i.x + 100) * (255.0 / 200.0)).round,
           y: ((i.y + 100) * (255.0 / 200.0)).round)
       end
-      connection.draw(converted_instructions)
+      connection.transmit_to_device(converted_instructions)
     end
 
     private
