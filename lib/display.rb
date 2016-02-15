@@ -25,17 +25,20 @@ module Ivan
       end
     end
 
-    # FIXME: this should be #normalize and #send_instructions
     def send_instructions(instructions)
-      converted_instructions = instructions.map do |i|
+      normalized_instructions = normalize_instructions(instructions)
+      connection.transmit_to_device(normalized_instructions)
+    end
+
+    private
+
+    def normalize_instructions(instructions)
+      normalized_instructions = instructions.map do |i|
         Point.new(
           x: ((i.x + 100) * (255.0 / 200.0)).round,
           y: ((i.y + 100) * (255.0 / 200.0)).round)
       end
-      connection.transmit_to_device(converted_instructions)
     end
-
-    private
 
     def valid_device_path?(device_path)
       !device_path.empty?
