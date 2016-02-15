@@ -13,3 +13,4 @@ end
 
 require 'ivan'
 require 'mocks'
+require 'yaml'
