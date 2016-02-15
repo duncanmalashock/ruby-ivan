@@ -1,11 +1,13 @@
 require_relative '../lib/ivan'
+require 'yaml'
 
 display = Ivan::Display.new(
   device_path: '/dev/tty.usbmodem54121')
 output = Ivan::Output.new(display: display)
 
+cube_yaml = YAML.load_file('apps/models/cube.yml')
 cube_1 = Ivan::Glyph.new(
-  model: Ivan::Model.new_from_file('apps/models/cube.yml'),
+  model: Ivan::Model.new_from_yaml(cube_yaml),
   scale: 1.0)
 
 x = 0
