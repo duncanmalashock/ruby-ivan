@@ -7,12 +7,8 @@ module Ivan
       clear
     end
 
-    def render(object_to_render)
-      if object_to_render.respond_to?(:render)
-        @instructions += (object_to_render.render)
-      else
-        return nil
-      end
+    def add_instructions(instructions)
+      @instructions += instructions
     end
 
     def clear

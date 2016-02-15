@@ -9,10 +9,10 @@ module Ivan
     end
 
     def render(object)
-      @frame.render(object)
+      @frame.add_instructions(object.render)
     end
 
-    def send_to_display
+    def send_frame_to_display
       @display.send_instructions(@frame.instructions)
     end
 
@@ -23,7 +23,7 @@ module Ivan
     def render_and_send(object)
       clear
       render(object)
-      send_to_display
+      send_frame_to_display
     end
   end
 end

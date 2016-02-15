@@ -4,30 +4,30 @@ module Ivan
   describe Output do
     let(:display) { double(send_instructions: true) }
     let(:output) { Output.new(frame: Frame.new, display: display) }
-    let(:object_1) { double }
+    let(:object_1) { double(render: [1,2,3]) }
 
     describe '#render' do
-      it 'sends :render to the frame object' do
-        expect(output.frame).to receive(:render)
-        output.render(nil)
+      it 'sends :add_instructions to the frame object' do
+        expect(output.frame).to receive(:add_instructions)
+        output.render(object_1)
       end
     end
 
-    describe '#send_to_display' do
+    describe '#send_frame_to_display' do
       context 'when it has instructions in the frame' do
         it 'sends instructions to display' do
           output.render(object_1)
           expect(output.display).to receive(:send_instructions).at_least(:once)
-          output.send_to_display
+          output.send_frame_to_display
         end
       end
     end
 
     describe '#render_and_send' do
-      it 'calls #clear, #render and #send_to_display in order' do
+      it 'calls #clear, #render and #send_frame_to_display in order' do
         expect(output).to receive(:clear)
         expect(output).to receive(:render)
-        expect(output).to receive(:send_to_display)
+        expect(output).to receive(:send_frame_to_display)
         output.render_and_send(nil)
       end
     end

@@ -3,8 +3,8 @@ require 'spec_helper'
 module Ivan
   describe Frame do
     let(:frame) { Frame.new }
-    let(:object_1) { double(render: [1, 2, 3]) }
-    let(:object_2) { double(render: [3, 4, 5, 6]) }
+    let(:instr_1) { [1, 2, 3] }
+    let(:instr_2) { [3, 4, 5, 6] }
 
     describe '#initialize' do
       it 'has no instructions' do
@@ -12,31 +12,25 @@ module Ivan
       end
     end
 
-    describe '#render' do
-      context 'when given an unrenderable object' do
-        it 'returns nil' do
-          result = frame.render(nil)
-          expect(result).to eq(nil)
-        end
-      end
-      context 'when given a renderable object' do
+    describe '#add_instructions' do
+      context 'when given a set of instructions' do
         it 'returns the number of instructions rendered' do
-          result = frame.render(object_1)
-          expect(result).to eq([1, 2, 3])
+          result = frame.add_instructions(instr_1)
+          expect(result).to eq(instr_1)
         end
       end
-      context 'when called twice with two renderable objects' do
+      context 'when called twice with two sets of instructions' do
         it 'returns the total of the instructions' do
-          frame.render(object_1)
-          result = frame.render(object_2)
-          expect(result).to eq(object_1.render + object_2.render)
+          frame.add_instructions(instr_1)
+          result = frame.add_instructions(instr_2)
+          expect(result).to eq(instr_1 + instr_2)
         end
       end
     end
 
     describe '#clear' do
       it 'clears the frame' do
-        frame.render(object_1)
+        frame.add_instructions(instr_1)
         frame.clear
         expect(frame.instructions).to eq([])
       end
